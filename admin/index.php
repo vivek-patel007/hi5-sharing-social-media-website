@@ -22,7 +22,7 @@
 include("partial/_header.php");
 include("partial/_sidebar.php");
 
-	$sql = "SELECT * FROM `tbl_user`";
+	$sql = "SELECT * FROM `tbl_user` WHERE is_active=0";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -136,8 +136,9 @@ if ($result->num_rows > 0) {
 	<td>
     <h5><?php echo $otp; ?></h5>
 	</td>
-	<td>
-		<div class="button soft-danger"><a href="hello.php"><i class="icofont-trash"></i><a></div>
+	<td>                                       
+		<div class="button soft-danger"><a class="delete" href="DeleteUser.php?User_ID=<?php echo $row['User_ID']; ?>">
+        <i class="icofont-trash"></i><a></div>
 		<div class="button soft-primary"><a href=""><i class="icofont-pen-alt-1"></i></a></div>	
 	</td>
 </tr>
@@ -399,7 +400,7 @@ $conn->close();
         </div>
     </div><!-- side slide message & popup -->
     </div>
-
+  
     <script src="js/main.min.js"></script>
     <script src="js/vivus.min.js"></script>
     <script src="js/script.js"></script>
