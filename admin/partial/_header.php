@@ -118,9 +118,48 @@
 				</li>
 			</ul>
 		</div>
-		
-	</header>header 
 	
+		<?php
+		if(isset($_GET['err']) && $_GET['err']=="false"){
+			$msg=$_GET['msg'];
+			echo '<div class="bg-gradient-success uk-light" uk-alert>
+			<a class="uk-alert-close" uk-close></a>
+			<strong id="success">SUCCESS: </strong> <p> '. $msg .'</p>
+		</div>'; 
+		  
+			
+		  
+		  }
+		  if(isset($_GET['err']) && $_GET['err']=="true"){
+			$msg=$_GET['msg'];
+			echo '<div class="bg-gradient-danger uk-light" uk-alert>
+			<a class="uk-alert-close" uk-close></a>
+			<strong id="success">ERROR: </strong><p>'. $msg .'</p>
+		</div>';
+		}
+	  
+		  
+		// if(isset($_GET['err'])){
+		// 	$msg=$_GET['msg'];
+		// 	$err=$_GET['err'];
+		// 	if($err==false){
+		// 	echo '<div class="bg-gradient-success uk-light" uk-alert>
+		// 	<a class="uk-alert-close" uk-close></a>
+		// 	<strong id="success">SUCCESS: </strong> <p> '. $msg .'</p>
+		// </div>'; 
+		// 	}
+		// if($err==true){
+		// 	  echo '<div class="bg-gradient-danger uk-light" uk-alert>
+		// 	  <a class="uk-alert-close" uk-close></a>
+		// 	  <strong id="success">ERROR: </strong><p>'. $msg .'</p>
+		//   </div>';
+		//   }
+		// }
+		?>
+		
+			
+	</header>header 
+
 	<div class="top-sub-bar">
 		<div class="container-fluid">
 			<div class="row">
@@ -138,10 +177,15 @@
 						<li><a href="#" title="">Home</a></li>
 						<li><a href="#" title="">Dashboard</a></li>
 					</ul>
+				
 				</div>
+				
 			</div>
+			
 		</div>	
+	
 	</div>
+	
 	<?php
 $servername = "localhost";
 $username = "root";
@@ -155,5 +199,34 @@ if ($conn->connect_error) {
   }
   session_start();
 ?>
+
+<?php
+
+// $msg=false;
+//  if(isset($_SESSION['login']) && $_SESSION['login']==true){
+//    $msg=false;
+//  }else{
+//    $msg=true;
+//  }
+// if(isset($_GET['login']) && $_GET['login']==false){
+//   $msg=true;
+  
+// }else{
+//   $msg=false;
+  
+// }
+// if($_GET['msg']){
+//   echo '<div class="container my-12">
+//   <div class="alert alert-success alert-dismissible fade show" role="alert">
+//   <strong id="success">ERROR: </strong> <p> '. $msg .'</p>
+//   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+//     <span aria-hidden="true">&times;</span>
+//   </button>
+//   </div>
+//   </div>'; 
+// }
+
+
+  ?>
 </body>
 </html>

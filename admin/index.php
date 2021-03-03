@@ -79,6 +79,9 @@ if ($result->num_rows > 0) {
                             <div class="d-widget">
                                 <div class="d-widget-title">
                                     <h5>Manage Users</h5>
+                                    <a href="AddUser.php" class="float-right btn btn-outline-dark mt-0 mb-2 mx-3" role="button" aria-pressed="true">+ ADD USER</a>
+                                    <!-- <input type="button" name="addusr" class="float-right btn btn-outline-dark mt-0 mb-2 mx-3" value="+ ADD USER"> -->
+                                    <!-- <button type="button">+ ADD USER</button> -->
                                 </div>
                                 <div class="d-widget-content">
                                     <table class="table manage-user table-default table-responsive-md">
@@ -109,40 +112,41 @@ if ($result->num_rows > 0) {
  $mobile=$row["Mobile_NO"];
  $post=$row["Post"];
  $otp=$row["OTP"];
- $xender=$row["xender"];
+ $xender=$row["gender"];
 ?>
-	<tr>
-	<td>
-		<figure><img src="images/resources/user.png" alt=""></figure>
-		<h5><?php echo $first.' '.$last; ?></h5>
-	</td>
-	<td><a class="mini-btn" href="#" title="">view</a></td>
-	<td><a class="mini-btn" href="#" title="">view</a></td>
-	<td>
-		
-        <h5><?php echo $post; ?></h5>
-		
-	</td>    
-	<td>
-		
-        <h5><?php echo $mobile; ?></h5>
-		
-	</td>
-    <td>
-		
-    <h5><?php echo $email; ?></h5>
-    
-</td>
-	<td>
-    <h5><?php echo $otp; ?></h5>
-	</td>
-	<td>                                       
-		<div class="button soft-danger"><a class="delete" href="DeleteUser.php?User_ID=<?php echo $row['User_ID']; ?>">
-        <i class="icofont-trash"></i><a></div>
-		<div class="button soft-primary"><a href=""><i class="icofont-pen-alt-1"></i></a></div>	
-	</td>
-</tr>
-<?php
+                                            <tr>
+                                                <td>
+                                                    <figure><img src="images/resources/user.png" alt=""></figure>
+                                                    <h5><?php echo $first.' '.$last; ?></h5>
+                                                </td>
+                                                <td><a class="mini-btn" href="#" title="">view</a></td>
+                                                <td><a class="mini-btn" href="#" title="">view</a></td>
+                                                <td>
+
+                                                    <h5><?php echo $post; ?></h5>
+
+                                                </td>
+                                                <td>
+
+                                                    <h5><?php echo $mobile; ?></h5>
+
+                                                </td>
+                                                <td>
+
+                                                    <h5><?php echo $email; ?></h5>
+
+                                                </td>
+                                                <td>
+                                                    <h5><?php echo $otp; ?></h5>
+                                                </td>
+                                                <td>
+                                                    <div class="button soft-danger"><a class="delete" href="DeleteUser.php?User_ID=<?php echo $row['User_ID']; ?>">
+                                                            <i class="icofont-trash"></i><a></div>
+                                                    <div class="button soft-primary"><a href=""><i
+                                                                class="icofont-pen-alt-1"></i></a></div>
+                                                </td>
+                                            </tr>
+                                            <?php
   }
 } else {
   echo "0 results";
@@ -186,10 +190,10 @@ $conn->close();
                                             <td>Delivered</td>
                                             <td>Paypal</td>
                                             <td><a href="#" title="">view invoice</a></td>
-                                          	<td>
-		<div class="button soft-danger"><i class="icofont-trash"></i></div>
-		<div class="button soft-primary"><i class="icofont-pen-alt-1"></i></div>	
-	</td>
+                                            <td>
+                                                <div class="button soft-danger"><i class="icofont-trash"></i></div>
+                                                <div class="button soft-primary"><i class="icofont-pen-alt-1"></i></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>002</td>
@@ -400,7 +404,7 @@ $conn->close();
         </div>
     </div><!-- side slide message & popup -->
     </div>
-  
+
     <script src="js/main.min.js"></script>
     <script src="js/vivus.min.js"></script>
     <script src="js/script.js"></script>
@@ -413,6 +417,3 @@ $conn->close();
 </body>
 
 </html>
-
-
-

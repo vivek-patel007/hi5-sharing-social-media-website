@@ -5,7 +5,8 @@
    echo $id;
 	$sql = "UPDATE `tbl_user` SET `is_active`=1 WHERE `User_ID`=$id ";
     if ($conn->query($sql) === TRUE) {
-        header("location:hi5-sharing/admin/");
+        $msg="Record has been successfully deleted...";
+        header("location:/hi5-sharing/admin?msg=$msg && err=false");
       } else {
         echo "Error deleting record: " . $conn->error;
       }
