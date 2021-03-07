@@ -5,6 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="images/favicon.ico" />
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- Typography CSS -->
+      <link rel="stylesheet" href="css/typography.css">
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive CSS -->
+      <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body class="right-column-fixed">
       <!-- loader Start -->

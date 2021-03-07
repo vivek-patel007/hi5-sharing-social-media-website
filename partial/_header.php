@@ -17,7 +17,8 @@
       <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body class="right-column-fixed">
-<div class="iq-top-navbar">
+   <div class="container mt-0">
+      <div class="iq-top-navbar mt-0">
             <div class="iq-navbar-custom">
                <nav class="navbar navbar-expand-lg navbar-light p-0">
                   <div class="iq-navbar-logo d-flex justify-content-between">
@@ -340,51 +341,29 @@
                </nav>
             </div>
          </div>
-
+         <?php
+		if(isset($_GET['err']) && $_GET['err']=="false"){
+			$msg=$_GET['msg'];
+			echo '<div class="bg-gradient-success uk-light" uk-alert>
+			<a class="uk-alert-close" uk-close></a>
+			<strong id="success">SUCCESS: </strong> <p> '. $msg .'</p>
+		</div>'; 
+		  
+			
+		  
+		  }
+		  if(isset($_GET['err']) && $_GET['err']=="true"){
+			$msg=$_GET['msg'];
+			echo '<div class="bg-gradient-danger uk-light" uk-alert>
+			<a class="uk-alert-close" uk-close></a>
+			<strong id="success">ERROR: </strong><p>'. $msg .'</p>
+		</div>';
+		}
+      ?>
+       </div>
             <!-- Footer END -->
       <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <!-- Appear JavaScript -->
-      <script src="js/jquery.appear.js"></script>
-      <!-- Countdown JavaScript -->
-      <script src="js/countdown.min.js"></script>
-      <!-- Counterup JavaScript -->
-      <script src="js/waypoints.min.js"></script>
-      <script src="js/jquery.counterup.min.js"></script>
-      <!-- Wow JavaScript -->
-      <script src="js/wow.min.js"></script>
-      <!-- Apexcharts JavaScript -->
-      <script src="js/apexcharts.js"></script>
-      <!-- Slick JavaScript -->
-      <script src="js/slick.min.js"></script>
-      <!-- Select2 JavaScript -->
-      <script src="js/select2.min.js"></script>
-      <!-- Owl Carousel JavaScript -->
-      <script src="js/owl.carousel.min.js"></script>
-      <!-- Magnific Popup JavaScript -->
-      <script src="js/jquery.magnific-popup.min.js"></script>
-      <!-- Smooth Scrollbar JavaScript -->
-      <script src="js/smooth-scrollbar.js"></script>
-      <!-- lottie JavaScript -->
-      <script src="js/lottie.js"></script>
-      <!-- am core JavaScript -->
-      <script src="js/core.js"></script>
-      <!-- am charts JavaScript -->
-      <script src="js/charts.js"></script>
-      <!-- am animated JavaScript -->
-      <script src="js/animated.js"></script>
-      <!-- am kelly JavaScript -->
-      <script src="js/kelly.js"></script>
-      <!-- am maps JavaScript -->
-      <script src="js/maps.js"></script>
-      <!-- am worldLow JavaScript -->
-      <script src="js/worldLow.js"></script>
-      <!-- Chart Custom JavaScript -->
-      <script src="js/chart-custom.js"></script>
-      <!-- Custom JavaScript -->
-      <script src="js/custom.js"></script>
+     
          </body>
 </html>

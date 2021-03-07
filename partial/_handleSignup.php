@@ -46,17 +46,62 @@ if(!is_dir('user images')){
         header("location:/hi5-sharing/signup.php?err=true&&msg=$msg");   
         exit();
   }
-  if($pass !== $cpass){
-    $msg= "Password are not match !!";
+  if($pass !== $cpass && $pass <=6){
+    $msg= "Password are not match or is to much sort !!";
     header("location:/hi5-sharing/signup.php?err=true&&msg=$msg");  
     $conn->close();
   }
+  //start otp sys
+
+  //end otp sys
     if(move_uploaded_file($file_tmp,'user images/'.$file_name0)){
-  
+      $sql=("SELECT `Mobile_NO` FROM `tbl_user` WHERE `Mobile_NO`='".$_POST['Mobile_NO']."'");
+      $result=mysqli_query($con,$sql);
+      if(mysqli_affected_rows($con)>0)
+      {
+      
+        $_SESSION['error']="Mobile Number Already Exist";
+        $error=$_SESSION['error'];
+        echo "<script language='javascript'>alert(".$error.")</script>";
+        
+        
+      }
+      else
+      {
+        $otp=rand(0000,9999);
+        $_SESSION['OTP']=$otp;
+
       $sql = "INSERT INTO tbl_user(First_Name, Last_Name, Email_ID, Mobile_NO, Post, Password,
       City, Address, OTP, Timestamp, User_image,gender, is_active)
        VALUES
-       ('$fn','$ln','$mail',$mno,0,'$pass','$city','$add',000000,now(),'$img','$gender',0)";
+       ('$fn','$ln','$mail',$mno,0,'$pass','$city','$add',$otp,now(),'$img','$gender',1)";
+
+$result1=mysqli_query($con,$sql1);
+    
+$sql2=("INSERT INTO tbl_login (Email_ID, Password, Type) VALUES ('$mail','$pass','user')");
+$result2=mysqli_query($conn,$sql2);
+if(mysqli_affected_rows($conn)>0)
+
+  
+
+if(mysqli_affected_rows($conn)>0)
+{
+  
+  $msg=urlencode('Your Verification Code Is '.$otp);file_get_contents('https://www.fast2sms.com/dev/bulk?authorization=BXRkhawSnsUm03tHzxCy16P9JFuqQYjrZOW74Lg5oeTAldDI8VT84LgBM7AvH9ae0WItNX1wOCKhcJdi&sender_id=FSTSMS&message='.$msg.'&language=english&route=p&numbers='.$_POST['contact_no']);
+
+  echo "<script>alert('we have send OTP to your mobile number,pl enter that to verify your account');</script>";
+
+  echo "<script>window.location.href='verify1.php?contact_no=".$contact_no."';</script>";
+  
+}
+else
+{
+  echo "<script>alert('Error creating account');</script>";
+  echo "<script>window.location.href='index.php';</script>";
+  
+  
+}
+}
       
       if ($conn->query($sql) === TRUE) {
         $msg="Added User Successfully....";

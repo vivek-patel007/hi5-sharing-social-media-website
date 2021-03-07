@@ -6,18 +6,18 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>SocialV - Responsive Bootstrap 4 Admin Dashboard Template</title>
 <style>
- body { max-width: 5000px;
-  overflow: scroll; 
-  .sticky {
-  position: fixed;
-  top: 0;
-  width: 100%
+ body::-webkit-scrollbar {
+  width: 1em;
 }
-
-/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 102px;
-} }
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
 </style>
    </head>
    <body style="sticky overflow: scroll;">

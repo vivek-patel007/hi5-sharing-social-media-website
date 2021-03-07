@@ -13,6 +13,7 @@
    <body>
 <?php
 include("partial/_header.php");
+
 // include("partial/_sidebar.php");
 ?> 
  <div id="content-page" class="content-page">
