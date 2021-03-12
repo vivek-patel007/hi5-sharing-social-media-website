@@ -18,7 +18,7 @@
                 aria-label="Close"
               ></button> -->
             </div>
-            <div class="modal-body p-4">
+            <div class="modal-body p-4 text-center">
             <form class="form" method="post" action="partial/_handleSignup.php" enctype="multipart/form-data">
                               <div class="row setup-content" id="user-detail">
                                  <div class="col-sm-12">
@@ -65,7 +65,7 @@
                                           </div>
                                           <div class="col-md-12 mb-3 form-group">
                                           <label for="address" class="control-label">Address: *</label>
-                                             <textarea name="add" class="form-control" id="add" rows="1" required="required"></textarea>
+                                             <textarea name="add" class="form-control" id="add" rows="5" required="required"></textarea>
                                                  </div>
                                                  <div class="col-md-12 mb-3 form-group mt-3">
                                                  <div class="custom-file">
@@ -75,7 +75,7 @@
                                           </div>
                                        </div>
                                        </div>
-                                       <button class="btn btn-primary mt--10 pull-right" type="submit" >Sign Up</button>
+                                       <button class="btn btn-primary nextBtn btn-lg pull-right" type="submit" >Sign  Up</button>
 </form>
                                     </div>
                                  </div>

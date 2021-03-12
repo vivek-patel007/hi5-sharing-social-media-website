@@ -86,15 +86,36 @@
                         </form>
                     </div>
                     <!-- Header Search End -->
-
-                    <div id="headerNav" class="navbar-collapse collapse float--right">
+<?php
+      
+      $activepage=basename($_SERVER['PHP_SELF']);
+      $index="";
+      $about="";
+      $package="";
+      
+      $contact="";
+      
+      switch($activepage){
+        case 'index.php':
+          $index="active";
+        break;
+        case 'about.php':
+          $about="active";
+        case 'contact.php':
+          $contact="active";
+        break;
+        default;
+      }
+?>
+ <?php
+   echo '                 <div id="headerNav" class="navbar-collapse collapse float--right">
                         <!-- Header Nav Links Start -->
                         <ul class="header--nav-links style--3 nav ff--primary">
-                            <li><a href="contact.html"><span>Home</span></a></li>
-                            <li><a href="contact.html"><span>About Us</span></a></li>
+                            <li class="'.$index.'"><a href="index.php"><span>Home</span></a></li>
+                            <li class="'.$about.'"><a href="about.php"><span>About Us</span></a></li>
                                                  
                             <li><a href="contact.html"><span>Packages</span></a></li>
-                            <li><a href="contact.html"><span>Contact Us</span></a></li>
+                            <li class="'.$contact.'"><a href="contact.php"><span>Contact Us</span></a></li>
                         </ul>
                         <!-- Header Nav Links End -->
                     </div>
@@ -102,9 +123,11 @@
             </div>
             <!-- Header Navbar End -->
         </header>
-        <!-- Header Section End -->
+        <!-- Header Section End -->';
+        ?>
 <?php
-include("_signup.php")
+include("_signup.php");
+// include("_signin.php");
 ?>
 </body>
 </html>

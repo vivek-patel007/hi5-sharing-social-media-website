@@ -74,7 +74,7 @@ include("partial/_indexHeader.php");
                                             </div>
 
                                             <div class="action text-uppercase">
-                                                <a href="#" class="btn btn-white">Log IN</a>
+                                                <a href="#" class="btn btn-white" data-toggle="modal" data-target="#signinmodal">Log IN</a>
                                                 <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#signupmodal">Sign UP</a>
                                                 <button type="button" class="btn btn-primary mb-2 ripple-surface" data-toggle="modal" data-target="#signupmodal">
             Extra large
@@ -113,7 +113,7 @@ include("partial/_indexHeader.php");
 
                                             <div class="action text-uppercase">
                                             
-                                                <a href="#" data-mdb-toggle="modal" data-mdb-target="#signupmodal" class="btn btn-white">Log IN</a>
+                                                <a href="#" data-mdb-toggle="modal" data-mdb-target="#signinmodal" class="btn btn-white">Log IN</a>
                                                 <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#signupmodal">Sign UP</a>
                                                 <button type="button" class="btn btn-primary mb-2 ripple-surface" data-toggle="modal" data-mdb-target="#signupmodal">
             Extra large
@@ -154,7 +154,7 @@ include("partial/_indexHeader.php");
                                             </div>
 
                                             <div class="action text-uppercase">
-                                                <a href="#" class="btn btn-white">Log IN</a>
+                                                <a href="#" class="btn btn-white" data-toggle="modal" data-target="#signinmodal">Log IN</a>
                                                 <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#signupmodal">Sign UP</a>
                                             </div>
                                         </div>
