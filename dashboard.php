@@ -22,7 +22,7 @@ include("partial/_header.php");
 include("partial/_sidebar.php");
 ?>
          <!-- Right Sidebar Panel Start-->
-         <div class="right-sidebar-mini right-sidebar">
+         <!-- <div class="right-sidebar-mini right-sidebar">
             <div class="right-sidebar-panel p-0">
                <div class="iq-card shadow-none">
                   <div class="iq-card-body p-0">
@@ -125,7 +125,7 @@ include("partial/_sidebar.php");
                   </div>
                </div>
             </div>
-         </div>
+         </div> -->
          <!-- Right Sidebar Panel End-->
          <!-- Page Content  -->
          <div id="content-page" class="content-page">
@@ -1166,7 +1166,7 @@ include("partial/_sidebar.php");
                         <div class="iq-card-body">
                            <ul class="media-story m-0 p-0">
                               <li class="d-flex mb-4 align-items-center">
-                                 <i class="ri-add-line font-size-18"></i>
+                                 <i class="fa fa-plus"></i>
                                  <div class="stories-data ml-3">
                                     <h5>Creat Your Story</h5>
                                     <p class="mb-0">time to story</p>

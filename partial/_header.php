@@ -15,6 +15,10 @@
       <link rel="stylesheet" href="css/style.css">
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="css/responsive.css">
+      <script src="https://use.fontawesome.com/a61ba315b6.js"></script>
+      <style>
+      
+      </style>
 </head>
 <body class="right-column-fixed">
    <div class="container mt-0">
@@ -23,19 +27,19 @@
                <nav class="navbar navbar-expand-lg navbar-light p-0">
                   <div class="iq-navbar-logo d-flex justify-content-between">
                      <a href="index.html">
-                     <img src="images/logo.png" class="img-fluid" alt="">
-                     <span>SocialV</span>
+                     <img src="img/ico/apple-icon-76x76.png" class="img-fluid" alt="">
+                     <span>Sharing</span>
                      </a>
                      <div class="iq-menu-bt align-self-center">
                      <div class="wrapper-menu">
-                        <div class="main-circle"><i class="ri-menu-line"></i></div>
+                        <div class="main-circle"><i class="fa fa-bars"></i></div>
                      </div>
                   </div>
                   </div>
                   <div class="iq-search-bar">
                      <form action="#" class="searchbox">
                         <input type="text" class="text search-input" placeholder="Type here to search...">
-                        <a class="search-link" href="#"><i class="ri-search-line"></i></a>
+                        <a class="search-link" href="#"><i class="fa fa-search"></i></a>
                      </form>
                   </div>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
@@ -53,11 +57,11 @@
                         </li>
                         <li>
                            <a href="index.html" class="iq-waves-effect d-flex align-items-center">
-                           <i class="ri-home-line"></i>
+                           <i class="fa fa-home"></i>
                            </a>
                         </li>
                         <li class="nav-item">
-                           <a class="search-toggle iq-waves-effect" href="#"><i class="ri-group-line"></i></a>
+                           <a class="search-toggle iq-waves-effect" href="#"><i class="fa fa-users"></i></a>
                            <div class="iq-sub-dropdown iq-sub-dropdown-large">
                               <div class="iq-card shadow-none m-0">
                                  <div class="iq-card-body p-0 ">
@@ -115,7 +119,7 @@
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="iq-friend-request">
+                                    <div class="fal fa-users">
                                        <div class="iq-sub-card iq-sub-card-big d-flex align-items-center justify-content-between" >
                                           <div class="d-flex align-items-center">
                                              <div class="">
@@ -273,7 +277,7 @@
                            </div>
                         </li>
                      </ul>
-                     <ul class="navbar-list">
+                     <!-- <ul class="navbar-list">
                         <li>
                            <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
                            <i class="ri-arrow-down-s-fill"></i>
@@ -336,7 +340,7 @@
                               </div>
                            </div>
                         </li>
-                     </ul>
+                     </ul> -->
                   </div>
                </nav>
             </div>

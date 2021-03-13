@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- ==== Document Title ==== -->
- 
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     
     <!-- ==== Document Meta ==== -->
     <meta name="author" content="ThemeLooks">
@@ -40,6 +40,16 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+<style>
+
+/* .bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+} */
+</style>
 </head>
 <body>
 
@@ -69,9 +79,10 @@
                         </button>
 
                         <!-- Header Navbar Logo Start -->
-                        <div class="header--navbar-logo navbar-brand">
-                            <a href="index.html">
-                                <img src="img/logo-black.png" alt="">
+                        <div class="header--navbar-logo navbar-brand" style="background-color: white;">
+                            <a href="index.html" style="background-color: white;">
+                                <img src="img/ico/apple-icon-76x76.png" alt="" >
+
                             </a>
                         </div>
                         <!-- Header Navbar Logo End -->
@@ -101,6 +112,10 @@
         break;
         case 'about.php':
           $about="active";
+          break;
+          case 'package.php':
+            $package="active";
+          break;
         case 'contact.php':
           $contact="active";
         break;
@@ -114,7 +129,7 @@
                             <li class="'.$index.'"><a href="index.php"><span>Home</span></a></li>
                             <li class="'.$about.'"><a href="about.php"><span>About Us</span></a></li>
                                                  
-                            <li><a href="contact.html"><span>Packages</span></a></li>
+                            <li class="'.$package.'"><a href="package.php"><span>Packages</span></a></li>
                             <li class="'.$contact.'"><a href="contact.php"><span>Contact Us</span></a></li>
                         </ul>
                         <!-- Header Nav Links End -->

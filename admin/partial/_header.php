@@ -53,7 +53,7 @@
 	
 	<header class="">
 		<div class="topbar stick">
-			<div class="logo"><img alt="" src="images/logo.png"><span>Socimo</span></div>
+			<div class="logo"><img alt="" src="../img/ico/apple-icon-76x76.png"><span>Sharing Admin</span></div>
 			<div class="searches">
 				<form method="post">
 					<input type="text" placeholder="Search...">
