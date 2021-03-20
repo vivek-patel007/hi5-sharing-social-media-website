@@ -75,5 +75,5 @@ if(!is_dir('user posts')){
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 }
-$conn->close();
+
 ?>
