@@ -7,7 +7,7 @@
 
     <!-- ==== Document Title ==== -->
     <title>SociFly - Multipurpose Social Network HTML5 Template</title>
-
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <!-- ==== Document Meta ==== -->
     <meta name="author" content="ThemeLooks">
     <meta name="description" content="Multipurpose Social Network HTML5 Template">

@@ -36,7 +36,7 @@
 					<li><a title="" href="#"><i class="icofont-question-circle"></i>Help</a></li>
 					<li><a title="" href="#"><i class="icofont-gear"></i>Setting</a></li>
 					<li><a class="dark-mod" title="" href="#"><i class="icofont-moon"></i>Dark Mode</a></li>
-					<li><a title="" href="login-register.html" class="logout"><i class="icofont-logout"></i>Logout</a></li>
+					<li><a title="" href="partial/_logout.php" class="logout"><i class="icofont-logout"></i>Logout</a></li>
 				</ul>
 			</div>
 			<div class="res-search">
@@ -114,7 +114,7 @@
 						<li><a href="settings.html" title=""><i class="icofont-gear"></i> Setting</a></li>
 						<li><a href="privacy-n-policy.html" title=""><i class="icofont-notepad"></i> Privacy</a></li>
 						<li><a class="dark-mod" title="" href="#"><i class="icofont-moon"></i> Dark Mode</a></li>
-						<li class="logout"><a href="sign-in.html" title=""><i class="icofont-power"></i> Logout</a></li>
+						<li class="logout"><a href="partial/_logout.php" title=""><i class="icofont-power"></i> Logout</a></li>
 					</ul>
 				</li>
 			</ul>

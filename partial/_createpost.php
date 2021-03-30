@@ -56,24 +56,19 @@ if(!is_dir('user posts')){
   // $msg=urlencode('Your Verification Code Is '.$otp);file_get_contents('https://www.fast2sms.com/dev/bulk?authorization=BXRkhawSnsUm03tHzxCy16P9JFuqQYjrZOW74Lg5oeTAldDI8VT84LgBM7AvH9ae0WItNX1wOCKhcJdi&sender_id=FSTSMS&message='.$msg.'&language=english&route=p&numbers='.$_POST['contact_no']);
   $msg=urlencode('added post success...... ');
   header("location:/hi5-sharing/dashboard.php?err=false&&msg=$msg");  
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
+} 
 // if ($conn->query($sql) === TRUE) {
 //   $msg="Added User Successfully....";
 //   header("location:/hi5-sharing/dashboard.php?err=false&&msg=$msg");  
 // }
 }
       
-      if ($conn->query($sql) === TRUE) {
-        $msg="Added User Successfully....";
-        header("location:/hi5-sharing/dashboard.php?err=false&&msg=$msg");  
-    }
+    //   if ($conn->query($sql) === TRUE) {
+    //     $msg="Added User Successfully....";
+    //     header("location:/hi5-sharing/dashboard.php?err=false&&msg=$msg");  
+    // }
 
-
-}else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+    
 }
 }
-
 ?>

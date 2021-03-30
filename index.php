@@ -74,11 +74,9 @@ include("partial/_indexHeader.php");
                                             </div>
 
                                             <div class="action text-uppercase">
-                                                <a href="#" class="btn btn-white" data-toggle="modal" data-target="#signinmodal">Log IN</a>
+                                                <a href="login.php" class="btn btn-white">Log IN</a>
                                                 <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#signupmodal">Sign UP</a>
-                                                <button type="button" class="btn btn-primary mb-2 ripple-surface" data-toggle="modal" data-target="#signupmodal">
-            Extra large
-      </button>
+                      
                                             </div>
                                         </div>
                                         <!-- Banner Content End -->
@@ -113,11 +111,9 @@ include("partial/_indexHeader.php");
 
                                             <div class="action text-uppercase">
                                             
-                                                <a href="#" data-mdb-toggle="modal" data-mdb-target="#signinmodal" class="btn btn-white">Log IN</a>
+                                                <a href="login.php" class="btn btn-white">Log IN</a>
                                                 <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#signupmodal">Sign UP</a>
-                                                <button type="button" class="btn btn-primary mb-2 ripple-surface" data-toggle="modal" data-mdb-target="#signupmodal">
-            Extra large
-      </button>
+                       
                                             </div>
                                         </div>
                                         <!-- <div class="modal-body p-4">
@@ -154,7 +150,7 @@ include("partial/_indexHeader.php");
                                             </div>
 
                                             <div class="action text-uppercase">
-                                                <a href="#" class="btn btn-white" data-toggle="modal" data-target="#signinmodal">Log IN</a>
+                                                <a href="login.php" class="btn btn-white">Log IN</a>
                                                 <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#signupmodal">Sign UP</a>
                                             </div>
                                         </div>
@@ -204,13 +200,13 @@ include("partial/_indexHeader.php");
                                 <img src="img/how-it-works-img/03.jpg" alt="">
                             </div>
 
-                            <div class="col-xs-12">
+                            <div class="col-xs-12 pb--15">
                                 <img src="img/how-it-works-img/04.jpg" alt="">
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-5 pb--40">
+                    <div class="col-md-5 pb--20">
                         <!-- Info Items Start -->
                         <div class="info--items" data-scroll-reveal="group">
                             <!-- Info Item Start -->

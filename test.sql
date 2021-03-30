@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2021 at 09:06 AM
+-- Generation Time: Mar 30, 2021 at 07:11 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -309,6 +309,20 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_contact`
+--
+
+CREATE TABLE `tbl_contact` (
+  `package_id` int(3) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `subject` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `massage` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_login`
 --
 
@@ -326,8 +340,38 @@ CREATE TABLE `tbl_login` (
 
 INSERT INTO `tbl_login` (`Login_ID`, `Email_ID`, `Password`, `Type`, `Timestamp`) VALUES
 (1, 'vd@vd.com', '111111', 'user', '2021-03-03 13:55:55'),
-(2, 'vd@vd.com', '1111', 'user', '2021-03-13 12:43:19'),
-(3, '', '', 'user', '2021-03-17 12:10:16');
+(4, 'vd@hi5-sharing.com', '111111', 'admin', '2021-03-23 02:41:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_packages`
+--
+
+CREATE TABLE `tbl_packages` (
+  `package_id` int(3) NOT NULL,
+  `package_price` int(5) NOT NULL,
+  `package_description` longtext NOT NULL,
+  `package_title` varchar(50) NOT NULL,
+  `package_size` varchar(5) NOT NULL,
+  `package_start` varchar(10) NOT NULL,
+  `package_end` varchar(10) NOT NULL,
+  `duration` int(3) NOT NULL,
+  `timestamp` datetime NOT NULL,
+  `is_active` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_packages`
+--
+
+INSERT INTO `tbl_packages` (`package_id`, `package_price`, `package_description`, `package_title`, `package_size`, `package_start`, `package_end`, `duration`, `timestamp`, `is_active`) VALUES
+(1, 5888, 'xxxxxxxxxxxxx', 'pkg ', '8', '2021-03-24', '2021-03-18', 56, '2021-03-29 08:32:03', 1),
+(3, 500, 'xzxzxzx', 'intial package2', '16 GB', '03/25/2021', '0000-00-00', 6, '2021-03-29 08:34:02', 0),
+(4, 800, 'knknknk', 'intial package4', 'Choos', '03/30/2021', '03/31/2021', 1, '2021-03-29 08:43:29', 0),
+(5, 70000, 'c fgcgfcf', 'intial package4', '8 GB', '03/27/2021', '03/31/2021', 4, '2021-03-26 02:59:12', 0),
+(6, 5000, 'asdfevvvvvv', 'intial package5', '16 GB', '03/27/2021', '06/17/2021', 82, '2021-03-26 03:38:07', 0),
+(7, 5099, 'edccedced', 'intial package6', '16 GB', '03/30/2021', '03/31/2021', 1, '2021-03-29 08:34:27', 0);
 
 -- --------------------------------------------------------
 
@@ -350,9 +394,11 @@ CREATE TABLE `tbl_post` (
 --
 
 INSERT INTO `tbl_post` (`Post_ID`, `type`, `Post`, `Post_Title`, `Post_Caption`, `Timestamp`, `User_ID_id`) VALUES
-(5, '$file_', '$post', '$pt', '$pc', '2021-03-17 12:29:56.000000', 17),
 (6, 'image/', '01.jpg', 'vd', 'xxxx', '2021-03-17 12:30:45.000000', 17),
-(7, 'image/', '01.jpg', 'vd', 'xxxx', '2021-03-17 12:30:45.000000', 17);
+(7, 'image/', '01.jpg', 'vd', 'xxxx', '2021-03-17 12:30:45.000000', 17),
+(8, 'image/', '15.jpg', 'xxxvd', 'vdxxxx', '2021-03-22 02:38:34.000000', 17),
+(9, 'image/', '16.jpg', 'pikachu', 'vd', '2021-03-22 02:40:11.000000', 17),
+(10, 'image/', '24.jpg', 'pikachu2', 'vd2', '2021-03-22 02:45:45.000000', 17);
 
 -- --------------------------------------------------------
 
@@ -475,10 +521,22 @@ ALTER TABLE `django_session`
   ADD KEY `django_session_expire_date_a5c62663` (`expire_date`);
 
 --
+-- Indexes for table `tbl_contact`
+--
+ALTER TABLE `tbl_contact`
+  ADD PRIMARY KEY (`package_id`);
+
+--
 -- Indexes for table `tbl_login`
 --
 ALTER TABLE `tbl_login`
   ADD PRIMARY KEY (`Login_ID`);
+
+--
+-- Indexes for table `tbl_packages`
+--
+ALTER TABLE `tbl_packages`
+  ADD PRIMARY KEY (`package_id`);
 
 --
 -- Indexes for table `tbl_post`
@@ -555,13 +613,19 @@ ALTER TABLE `django_migrations`
 -- AUTO_INCREMENT for table `tbl_login`
 --
 ALTER TABLE `tbl_login`
-  MODIFY `Login_ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Login_ID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tbl_packages`
+--
+ALTER TABLE `tbl_packages`
+  MODIFY `package_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_post`
 --
 ALTER TABLE `tbl_post`
-  MODIFY `Post_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Post_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

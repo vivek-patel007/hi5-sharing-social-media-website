@@ -7,16 +7,41 @@
     <title>Document</title>
 </head>
 <body>
+<?php
+      
+      $activepage=basename($_SERVER['PHP_SELF']);
+      $index="";
+      $about="";
+      $package="";
+      $pkg="";
+      $contact="";
+      
+      switch($activepage){
+        case 'index.php':
+          $index="active";
+        break;
+        case 'packages.php':
+          $pkg="active";
+          break;
+        //   case 'package.php':
+        //     $package="active";
+        //   break;
+        // case 'contact.php':
+        //   $contact="active";
+        // break;
+        default;
+      }
+echo '
 <nav class="sidebar">
 		<ul class="menu-slide">
-			<li class="active">
-				<a class="" href="index.html" title="">
+			<li class="'.$index.'">
+				<a class="" href="index.php" title="">
 					<i><svg id="icon-home" class="feather feather-home" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></i> Dashboard
 				</a>
 			</li>
-			<li class="">
-				<a class="" href="analytics.html" title="">
-					<i class=""><svg id="ab7" class="feather feather-zap" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></i>Analytics
+			<li class="'.$pkg.'">
+				<a class="" href="packages.php" title="">
+					<i class=""><svg id="ab7" class="feather feather-zap" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></i>Packages
 				</a>
 			</li>
 			<li class="">
@@ -85,6 +110,7 @@
 				</ul>
 			</li>
 		</ul>
-	</nav>
+	</nav>';
+	?>
 </body>
 </html>

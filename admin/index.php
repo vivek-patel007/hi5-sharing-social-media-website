@@ -79,13 +79,13 @@ if ($result->num_rows > 0) {
                             <div class="d-widget">
                                 <div class="d-widget-title">
                                     <h5>Manage Users</h5>
-                                    <a href="AddUser.php" class="float-right btn btn-outline-dark mt-0 mb-2 mx-3" role="button" aria-pressed="true">+ ADD USER</a>
+                                    <!-- <a href="AddUser.php" class="float-right btn btn-outline-dark mt-0 mb-2 mx-3" role="button" aria-pressed="true">+ ADD USER</a> -->
                                     <!-- <input type="button" name="addusr" class="float-right btn btn-outline-dark mt-0 mb-2 mx-3" value="+ ADD USER"> -->
                                     <!-- <button type="button">+ ADD USER</button> -->
                                 </div>
                                 <div class="d-widget-content">
                                     <table class="table manage-user table-default table-responsive-md">
-                                        <thead>
+                                        <thead class="text-center">
                                             <tr>
                                                 <th>User Name</th>
                                                 <th>View profile</th>
@@ -94,7 +94,7 @@ if ($result->num_rows > 0) {
                                                 <th>Mobile NO</th>
                                                 <th>Email</th>
                                                 <th>OTP</th>
-                                                <th>Edit</th>
+                                                <th>Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -142,8 +142,8 @@ if ($result->num_rows > 0) {
                                                 <td>
                                                     <div class="button soft-danger"><a class="delete" href="DeleteUser.php?User_ID=<?php echo $row['User_ID']; ?>">
                                                             <i class="icofont-trash"></i><a></div>
-                                                    <div class="button soft-primary"><a href=""><i
-                                                                class="icofont-pen-alt-1"></i></a></div>
+                                                    <!-- <div class="button soft-primary"><a href=""><i
+                                                                class="icofont-pen-alt-1"></i></a></div> -->
                                                 </td>
                                             </tr>
                                             <?php

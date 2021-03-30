@@ -22,7 +22,7 @@ include("partial/_indexHeader.php");
     align-items: center;">
     <div class="col-md-9" style="box-shadow: 0px 0px 10px gray;">
                         <!-- Contact Form Start -->
-                        <div class="contact--form" data-form="ajax">
+                    
                             <div class="contact--title">
                                 <h3 class="h4 text-center">Log In</h3>
                             </div>
@@ -35,24 +35,24 @@ include("partial/_indexHeader.php");
                                 <p>(Required field are marked *)</p>
                             </div>
 
-                            <form action="forms/contact-form.php" method="post">
+                            <form action="partial/_handleLogin.php" method="post">
                                 <div class="row gutter--20">
                                   
                                     <div class="col-xs-12 col-xxs-12">
                                         <div class="form-group">
-                                            <input type="email" name="email"  placeholder="Enter Your E-mail Address" class="form-control" required="required">
+                                            <input type="email" name="lemail"  placeholder="Enter Your E-mail Address" class="form-control" required="required">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-xxs-12">
                                         <div class="form-group">
-                                            <input type="password" name="pass" placeholder="Enter Your Password" class="form-control" required>
+                                            <input type="password" name="lpass" placeholder="Enter Your Password" class="form-control" required>
                                                                     </div>
                                       
                                     </div>
                                    
                                     <div class="col-xs-12 text-center">
                                     <p><b class="mt-5"><a href="forgetpassword.php" class="text-primary">Forget Password</a></b></p>
-                                        <button type="submit" class="btn btn-primary mt--10">Send Message</button>
+                                        <input type="submit" value="Submit" class="btn btn-primary mt--10">
                                     </div>
                                     <div class="custom-control custom-checkbox my-1 mr-sm-2">
                                     <div class="col-xs-12 text-center">

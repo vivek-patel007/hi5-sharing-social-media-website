@@ -1,3 +1,7 @@
+<?php
+// if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+//     header("location: dashboard.php?login=true"); 
+?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -94,7 +98,7 @@ include("partial/_sidebar.php");
                                           <div class="user-img">
                                              <img src="images/user/1.jpg" alt="userimg" class="avatar-60 rounded-circle img-fluid">
                                           </div>
-                                          <form class="post-text ml-3 w-100" action="javascript:void();">
+                                          <form class="post-text ml-3 w-100" method="post" action="partial/_createpost.php" enctype="multipart/form-data">
                                              <input type="text" class="form-control rounded" name="pt" placeholder="Write Title here..." style="border:none;">
                                              <input type="text" class="form-control rounded" name="pc" placeholder="Write Caption here..." style="border:none;">
                                          
@@ -102,8 +106,9 @@ include("partial/_sidebar.php");
                                        <hr>
                                        <ul class="d-flex flex-wrap align-items-center list-inline m-0 p-0">
                                           <li class="col-md-12 mb-3">
-                                             <div class="iq-bg-primary rounded p-2 pointer mr-3"><a href="#"></a><label for="files" class="btn" style="color:blue;"><label for="files" class="btn" style="color:blue;"><img src="images/small/07.png" alt="icon" class="img-fluid"> Photo/Video</label><input id="files" style="visibility:hidden;" type="file"></div>
-                                             </form>
+                                             <div class="iq-bg-primary rounded p-2 pointer mr-3"><a href="#"></a><input id="files" name="post" type="file"></div>
+                                            
+
                                           </li>
                                           <!-- <li class="col-md-6 mb-3">
                                              <div class="iq-bg-primary rounded p-2 pointer mr-3"><a href="#"></a><img src="images/small/08.png" alt="icon" class="img-fluid"> Tag Friend</div>
@@ -183,7 +188,8 @@ include("partial/_sidebar.php");
                                              </div>
                                           </div>
                                        </div>
-                                       <button type="submit" class="btn btn-primary d-block w-100 mt-3">Post</button>
+                                       <button type="submit" name="submit" class="btn btn-primary d-block w-100 mt-3">Post</button>
+                                       </form>
                                     </div>
                                  </div>
                               </div>
@@ -193,7 +199,7 @@ include("partial/_sidebar.php");
                      <?php
                               include("partial/_db.php");
                               // $sql="select usr.stream_name,lgn.* from tbl_subject lgn INNER JOIN tbl_stream pl ON pl.stream_id=lgn.stream_id where lgn.status=0";
-                              $sql = "SELECT * FROM `tbl_post`";
+                              $sql = "SELECT * FROM `tbl_post` LIMIT 5";
                               $result = $conn->query($sql);
                               
                               if ($result->num_rows > 0) {
@@ -201,7 +207,7 @@ include("partial/_sidebar.php");
                                 while($row = $result->fetch_assoc()) {
                                  //   $uid=$row["User_ID_id"];
                                  //    $sql2="SELECT * FROM `tbl_user` WHERE '$uid'";
-                                 echo '
+                           ?>
                                  <div class="container-fluid">
                           <div class="col-sm-12">
                              <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
@@ -215,19 +221,19 @@ include("partial/_sidebar.php");
                                          <div class="media-support-info mt-2">
                                             <h5 class="mb-0 d-inline-block"><a href="#" class="">Anna Sthesia</a></h5>
                                             <p class="mb-0 d-inline-block">Add New Post</p>
-                                            <p class="mb-0 text-primary">'.$row["Post_Title"].'</p>
+                                            <p class="mb-0 text-primary"><?php echo $row["Post_Title"] ?></p>
                                          </div>
                                          <div class="iq-card-post-toolbar">
                                           
                                       </div>
                                    </div>
                                    <div class="mt-3">
-                                      <p>'.$row["Post_Caption"].'</p>
+                                      <p><?php echo $row["Post_Caption"] ?></p>
                                    </div>
                                    <div class="user-post">
                                       <div class="d-flex">
                                          <div class="col-md-6">
-                                            <a href="javascript:void();"><img src="partial/user posts/'.$row["Post"].'" alt="post-image" class="img-fluid rounded w-100"></a>
+                                            <a href="javascript:void();"><img src="partial/user posts/<?php echo $row["Post"] ?>" alt="post-image" class="img-fluid rounded w-100"></a>
                                          </div>
                                         
                                          </div>
@@ -342,8 +348,8 @@ include("partial/_sidebar.php");
                                 </div>
                              </div>
                           </div>
-                          </div>';
-                          
+                          </div>
+                          <?php
                        }
                                    } else {
                                      echo "0 results";
@@ -351,6 +357,13 @@ include("partial/_sidebar.php");
                                    ?>
                      
                   </div>
+
+
+
+
+
+
+
                   <div class="col-lg-6">
                      <div class="iq-card">
                         <div class="iq-card-header d-flex justify-content-between">
@@ -500,6 +513,83 @@ include("partial/_sidebar.php");
                                  <img src="images/small/img-2.jpg" class="img-fluid rounded" alt="Responsive image">
                                  <div class="mt-3"><a href="#" class="btn d-block"><i class="ri-thumb-up-line mr-2"></i> Like Page</a></div>
                               </li>
+                              <li class="">
+                                 <div class="d-flex align-items-center mb-3">
+                                    <img src="images/page-img/42.png" alt="story-img" class="rounded-circle img-fluid avatar-50">
+                                    <div class="stories-data ml-3">
+                                       <h5>Cakes & Bakes </h5>
+                                       <p class="mb-0">Lorem Ipsum</p>
+                                    </div>
+                                 </div>
+                                 <img src="images/small/img-2.jpg" class="img-fluid rounded" alt="Responsive image">
+                                 <div class="mt-3"><a href="#" class="btn d-block"><i class="ri-thumb-up-line mr-2"></i> Like Page</a></div>
+                              </li>
+                              <li class="">
+                                 <div class="d-flex align-items-center mb-3">
+                                    <img src="images/page-img/42.png" alt="story-img" class="rounded-circle img-fluid avatar-50">
+                                    <div class="stories-data ml-3">
+                                       <h5>Cakes & Bakes </h5>
+                                       <p class="mb-0">Lorem Ipsum</p>
+                                    </div>
+                                 </div>
+                                 <img src="images/small/img-2.jpg" class="img-fluid rounded" alt="Responsive image">
+                                 <div class="mt-3"><a href="#" class="btn d-block"><i class="ri-thumb-up-line mr-2"></i> Like Page</a></div>
+                              </li>
+                              <li class="">
+                                 <div class="d-flex align-items-center mb-3">
+                                    <img src="images/page-img/42.png" alt="story-img" class="rounded-circle img-fluid avatar-50">
+                                    <div class="stories-data ml-3">
+                                       <h5>Cakes & Bakes </h5>
+                                       <p class="mb-0">Lorem Ipsum</p>
+                                    </div>
+                                 </div>
+                                 <img src="images/small/img-2.jpg" class="img-fluid rounded" alt="Responsive image">
+                                 <div class="mt-3"><a href="#" class="btn d-block"><i class="ri-thumb-up-line mr-2"></i> Like Page</a></div>
+                              </li>
+                              <li class="">
+                                 <div class="d-flex align-items-center mb-3">
+                                    <img src="images/page-img/42.png" alt="story-img" class="rounded-circle img-fluid avatar-50">
+                                    <div class="stories-data ml-3">
+                                       <h5>Cakes & Bakes </h5>
+                                       <p class="mb-0">Lorem Ipsum</p>
+                                    </div>
+                                 </div>
+                                 <img src="images/small/img-2.jpg" class="img-fluid rounded" alt="Responsive image">
+                                 <div class="mt-3"><a href="#" class="btn d-block"><i class="ri-thumb-up-line mr-2"></i> Like Page</a></div>
+                              </li>
+                              <li class="">
+                                 <div class="d-flex align-items-center mb-3">
+                                    <img src="images/page-img/42.png" alt="story-img" class="rounded-circle img-fluid avatar-50">
+                                    <div class="stories-data ml-3">
+                                       <h5>Cakes & Bakes </h5>
+                                       <p class="mb-0">Lorem Ipsum</p>
+                                    </div>
+                                 </div>
+                                 <img src="images/small/img-2.jpg" class="img-fluid rounded" alt="Responsive image">
+                                 <div class="mt-3"><a href="#" class="btn d-block"><i class="ri-thumb-up-line mr-2"></i> Like Page</a></div>
+                              </li>
+                              <li class="">
+                                 <div class="d-flex align-items-center mb-3">
+                                    <img src="images/page-img/42.png" alt="story-img" class="rounded-circle img-fluid avatar-50">
+                                    <div class="stories-data ml-3">
+                                       <h5>Cakes & Bakes </h5>
+                                       <p class="mb-0">Lorem Ipsum</p>
+                                    </div>
+                                 </div>
+                                 <img src="images/small/img-2.jpg" class="img-fluid rounded" alt="Responsive image">
+                                 <div class="mt-3"><a href="#" class="btn d-block"><i class="ri-thumb-up-line mr-2"></i> Like Page</a></div>
+                              </li>
+                              <li class="">
+                                 <div class="d-flex align-items-center mb-3">
+                                    <img src="images/page-img/42.png" alt="story-img" class="rounded-circle img-fluid avatar-50">
+                                    <div class="stories-data ml-3">
+                                       <h5>Cakes & Bakes </h5>
+                                       <p class="mb-0">Lorem Ipsum</p>
+                                    </div>
+                                 </div>
+                                 <img src="images/small/img-2.jpg" class="img-fluid rounded" alt="Responsive image">
+                                 <div class="mt-3"><a href="#" class="btn d-block"><i class="ri-thumb-up-line mr-2"></i> Like Page</a></div>
+                              </li>
                            </ul>
                         </div>
                      </div>
@@ -533,9 +623,9 @@ include("partial/_sidebar.php");
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script>
 
-$("#files").change(function() {
-  filename = this.files[0].name
-  console.log(filename);
+// $("#files").change(function() {
+//   filename = this.files[0].name
+//   console.log(filename);
 });
 </script>
       <script src="js/jquery.min.js"></script>
@@ -583,3 +673,8 @@ $("#files").change(function() {
      
    </body>
 </html>
+<?php
+// } else {
+//    header("location: login.php?login=false"); 
+// }
+?>

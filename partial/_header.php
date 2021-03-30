@@ -276,6 +276,9 @@
                               </div>
                            </div>
                         </li>
+                        <li class="nav-item">
+                           <a class="search-toggle iq-waves-effect" href="partial/_logout.php"><i class="fa fa-sign-out"></i></a>
+                           </li>
                      </ul>
                      <!-- <ul class="navbar-list">
                         <li>
