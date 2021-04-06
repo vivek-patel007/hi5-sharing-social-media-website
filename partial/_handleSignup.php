@@ -37,18 +37,18 @@ if(!is_dir('user images')){
 	 if(!in_array($file_type, $allowed)) {
      $error=true;
     $msg = 'Only jpg, gif, and png files are allowed.';
-    header("location:/hi5-sharing/signup.php?err=true&&msg=$msg");    
+    header("location:index.php?err=true&&msg=$msg");    
     exit();
    }
     if($_FILES['image']['size'] > 10485760){
       $error=true;
         $msg= "Photo size is greater";
-        header("location:/hi5-sharing/signup.php?err=true&&msg=$msg");   
+        header("location:login.php?err=true&&msg=$msg");   
         exit();
   }
   if($pass !== $cpass && $pass <=6){
     $msg= "Password are not match or is to much sort !!";
-    header("location:/hi5-sharing/signup.php?err=true&&msg=$msg");  
+    header("location:index.php?err=true&&msg=$msg");  
     $conn->close();
   }
   //start otp sys
@@ -80,32 +80,33 @@ $result1=mysqli_query($con,$sql1);
     
 $sql2=("INSERT INTO tbl_login (Email_ID, Password, Type) VALUES ('$mail','$pass','user')");
 $result2=mysqli_query($conn,$sql2);
-if(mysqli_affected_rows($conn)>0)
+// if(mysqli_affected_rows($conn)>0)
 
   
 
-if(mysqli_affected_rows($conn)>0)
-{
-  
-  $msg=urlencode('Your Verification Code Is '.$otp);file_get_contents('https://www.fast2sms.com/dev/bulk?authorization=BXRkhawSnsUm03tHzxCy16P9JFuqQYjrZOW74Lg5oeTAldDI8VT84LgBM7AvH9ae0WItNX1wOCKhcJdi&sender_id=FSTSMS&message='.$msg.'&language=english&route=p&numbers='.$_POST['contact_no']);
-
-  echo "<script>alert('we have send OTP to your mobile number,pl enter that to verify your account');</script>";
-
-  echo "<script>window.location.href='verify1.php?contact_no=".$contact_no."';</script>";
-  
-}
-else
-{
-  echo "<script>alert('Error creating account');</script>";
-  echo "<script>window.location.href='index.php';</script>";
+// if(mysqli_affected_rows($conn)>0)
+// {
   
   
-}
+  
+// }
+// else
+// {
+//   echo "<script>alert('Error creating account');</script>";
+//   echo "<script>window.location.href='index.php';</script>";
+  
+  
+// }
 }
       
       if ($conn->query($sql) === TRUE) {
-        $msg="Added User Successfully....";
-        header("location:/hi5-sharing/signup.php?err=false&&msg=$msg"); 
+        $msg=urlencode('Your Verification Code Is '.$otp);file_get_contents('https://www.fast2sms.com/dev/bulk?authorization=BXRkhawSnsUm03tHzxCy16P9JFuqQYjrZOW74Lg5oeTAldDI8VT84LgBM7AvH9ae0WItNX1wOCKhcJdi&sender_id=FSTSMS&message='.$msg.'&language=english&route=p&numbers='.$_POST["cno"]);
+
+          echo "<script>alert('we have send OTP to your mobile number,pl enter that to verify your account');</script>";
+        
+          echo "<script>window.location.href='verify.php?contact_no=".$mno."';</script>";
+        // $msg="Added User Successfully....";
+        // header("location:/hi5-sharing/verify.php?err=false&&msg=$msg"); 
     }
 
 }

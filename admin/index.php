@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/color.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link href="plugins/apex/apexcharts.css" rel="stylesheet" type="text/css">
+    
 
 </head>
 
@@ -21,7 +22,7 @@
     <?php
 include("partial/_header.php");
 include("partial/_sidebar.php");
-
+// session_start();
 	$sql = "SELECT * FROM `tbl_user` WHERE is_active=0";
 $result = $conn->query($sql);
 
@@ -62,12 +63,13 @@ if ($result->num_rows > 0) {
                         <div class="col-lg-4 col-md-4 col-sm-4">
                             <div class="d-widget soft-green">
                                 <div class="d-widget-title">
+        
                                     <h5>Realtime Posts</h5>
                                 </div>
                                 <div class="d-widget-content">
                                     <span class="realtime-ico pulse"></span>
                                     <h6>Updating live</h6>
-                                    <h5>5.3K</h5>
+                                    <h5>10</h5>
                                     <i class="icofont-computer"></i>
                                 </div>
                             </div>
@@ -87,6 +89,7 @@ if ($result->num_rows > 0) {
                                     <table class="table manage-user table-default table-responsive-md">
                                         <thead class="text-center">
                                             <tr>
+                                                <!-- <th>images</th> -->
                                                 <th>User Name</th>
                                                 <th>View profile</th>
                                                 <th>Chat History</th>
@@ -113,10 +116,11 @@ if ($result->num_rows > 0) {
  $post=$row["Post"];
  $otp=$row["OTP"];
  $xender=$row["gender"];
+ $img=$row["User_image"];
 ?>
                                             <tr>
                                                 <td>
-                                                    <figure><img src="images/resources/user.png" alt=""></figure>
+                                                    <figure><img src="user images/<?php echo $img ?>" alt=""></figure>
                                                     <h5><?php echo $first.' '.$last; ?></h5>
                                                 </td>
                                                 <td><a class="mini-btn" href="#" title="">view</a></td>
@@ -151,7 +155,7 @@ if ($result->num_rows > 0) {
 } else {
   echo "0 results";
 }
-$conn->close();
+// $conn->close();
 ?>
 
                                         </tbody>
@@ -160,119 +164,70 @@ $conn->close();
                             </div>
                         </div>
                     </div>
+                    <?php
+                    $sql2 = "SELECT * FROM `tbl_post` WHERE is_active=0";
+$result2 = $conn->query($sql2);
+
+if ($result2->num_rows > 0) {
+
+    ?>
                     <div class="row merged20 mb-4">
                         <div class="col-lg-12">
                             <div class="d-widget">
                                 <div class="d-widget-title">
-                                    <h5>Latest Transcations</h5>
+                                    <h5>Latest user Posts</h5>
                                 </div>
                                 <table class="table-default table table-striped table-responsive-md">
                                     <thead>
                                         <tr>
-                                            <th>Order#</th>
-                                            <th>Product Name</th>
+                                            <th>Post#</th>
+                                            <th>Post Title</th>
+                                            <th>Post Caption</th>
+                                            <th>Post Type</th>
+                                            <th>Post</th>
                                             <th>Date</th>
-                                            <th>Total</th>
-                                            <th>Status</th>
-                                            <th>Pay Method</th>
-                                            <th>Invoice</th>
-                                            <th>Invoice</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+// 	$sql = "SELECT * FROM `tbl_user`";
+// $result = $conn->query($sql);
+
+// if ($result->num_rows > 0) {
+  // output data of each row
+  
+  while($row2 = $result2->fetch_assoc()) {
+ $id=$row2["Post_ID"];
+ $type=$row2["type"];
+ $title=$row2["Post_Title"];
+ $caption=$row2["Post_Caption"];
+ $post=$row2["Post"];
+ $timestamp=$row2["Timestamp"];
+?>
                                         <tr>
-                                            <td>001</td>
-                                            <td class="productss"><a href="#" title=""><img
-                                                        src="images/resources/course-1.jpg" alt=""> Html Basics Book</a>
-                                            </td>
-                                            <td>17-Oct-20</td>
-                                            <td>$50</td>
-                                            <td>Delivered</td>
-                                            <td>Paypal</td>
-                                            <td><a href="#" title="">view invoice</a></td>
+                                            <td><?php echo $id; ?></td>
+                                            <td> <?php echo $title; ?></td>
+                                            <td><?php echo $caption; ?></td>
+                                            <td><?php echo $type; ?></td>
+
+                                            <td>  <figure><img src="../partial/user posts/<?php echo $post ; ?>" alt="..." class="img-fluid img-thumbnail"></figure></td>
+                                            <td><?php echo $timestamp; ?></td>
+                                         
                                             <td>
-                                                <div class="button soft-danger"><i class="icofont-trash"></i></div>
-                                                <div class="button soft-primary"><i class="icofont-pen-alt-1"></i></div>
+                                            <div class="button soft-danger"><a class="delete" href="deletepost.php?post_id=<?php echo $id; ?>">
+                                            <i class="icofont-trash"></i><a></div>
+                                                <!-- <div class="button soft-primary"><i class="icofont-pen-alt-1"></i></div> -->
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>002</td>
-                                            <td class="productss"><a href="#" title=""><img
-                                                        src="images/resources/course-2.jpg" alt=""> VU.Js script
-                                                    Book</a></td>
-                                            <td>15-Oct-20</td>
-                                            <td>$30</td>
-                                            <td>On Way</td>
-                                            <td>Payoneer</td>
-                                            <td><a href="#" title="">view inoice</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>003</td>
-                                            <td class="productss"><a href="#" title=""><img
-                                                        src="images/resources/course-3.jpg" alt=""> Online Css3
-                                                    Course</a></td>
-                                            <td>07-Oct-20</td>
-                                            <td>$20</td>
-                                            <td>Pending</td>
-                                            <td>Visa</td>
-                                            <td><a href="#" title="">view invoice</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>004</td>
-                                            <td class="productss"><a href="#" title=""><img
-                                                        src="images/resources/course-4.jpg" alt=""> Online Course Basic
-                                                    HTML</a></td>
-                                            <td>02-Oct-20</td>
-                                            <td>$10</td>
-                                            <td>Delivered</td>
-                                            <td>Paypal</td>
-                                            <td><a href="#" title="">view invoice</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>005</td>
-                                            <td class="productss"><a href="#" title=""><img
-                                                        src="images/resources/course-5.jpg" alt=""> PHP Advance
-                                                    Course</a></td>
-                                            <td>27-Sep-20</td>
-                                            <td>$30</td>
-                                            <td>Delivered</td>
-                                            <td>COD</td>
-                                            <td><a href="#" title="">view invoice</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>006</td>
-                                            <td class="productss"><a href="#" title=""><img
-                                                        src="images/resources/course-6.jpg" alt=""> Advance Wp Book</a>
-                                            </td>
-                                            <td>25-Sep-20</td>
-                                            <td>$25</td>
-                                            <td>Return</td>
-                                            <td>Bitcoin</td>
-                                            <td><a href="#" title="">view invoice</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>007</td>
-                                            <td class="productss"><a href="#" title=""><img
-                                                        src="images/resources/course-2.png" alt=""> Online Marketing</a>
-                                            </td>
-                                            <td>24-Sep-20</td>
-                                            <td>$22</td>
-                                            <td>Delivered</td>
-                                            <td>Master Card</td>
-                                            <td><a href="#" title="">view invoice</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>008</td>
-                                            <td class="productss"><a href="#" title=""><img
-                                                        src="images/resources/course-1.jpg" alt=""> Advance PHP Book</a>
-                                            </td>
-                                            <td>20-Sep-20</td>
-                                            <td>$29</td>
-                                            <td>Pending</td>
-                                            <td>Visa</td>
-                                            <td><a href="#" title="">view invoice</a></td>
-                                        </tr>
-                                    </tbody>
+                                        <?php
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
+?>
+                                        </tbody>
                                 </table>
                             </div>
                         </div>

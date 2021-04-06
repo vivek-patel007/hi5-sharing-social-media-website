@@ -24,17 +24,43 @@
       </div>
       <!-- loader END -->
       <!-- Wrapper Start -->
+      
       <div class="wrapper">
          <!-- Sidebar  -->
          <div class="iq-sidebar">
             <div id="sidebar-scrollbar">
                <nav class="iq-sidebar-menu">
                   <ul id="iq-sidebar-toggle" class="iq-menu">
-                     <li class="active">
-                        <a href="index.html" class="iq-waves-effect"><i class="las la-newspaper"></i><span>Newsfeed</span></a>
+                  <?php
+      
+      $activepage=basename($_SERVER['PHP_SELF']);
+      $dash="";
+      $edit="";
+      $package="";
+      $pkg="";
+      $contact="";
+      
+      switch($activepage){
+        case 'dashboard.php':
+          $dash="active";
+        break;
+        case 'profiledit.php':
+          $edit="active";
+          break;
+      //     case 'post.php':
+      //       $post="active";
+      //     break;
+      //   case 'contact.php':
+      //     $contact="active";
+      //   break;
+        default;
+      }
+echo '
+                     <li class="'.$dash.'">
+                        <a href="dashboard.php" class="iq-waves-effect"><i class="las la-newspaper"></i><span>Dashboard</span></a>
                      </li>
-                     <li>
-                        <a href="profile.html" class="iq-waves-effect"><i class="las la-user"></i><span>Profile</span></a>
+                     <li class="'.$edit.'">
+                        <a href="profiledit.php" class="iq-waves-effect"><i class="las la-user"></i><span>Profile</span></a>
                      </li>
              
                   
@@ -197,7 +223,7 @@
                               </ul>
                            </li>
                         </ul>
-                     </li>
+                     </li>';?>
 
                   </ul>
                </nav>

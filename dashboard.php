@@ -1,7 +1,13 @@
 <?php
-// if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
-//     header("location: dashboard.php?login=true"); 
+	ob_start();
+session_start();
+if(!$_SESSION['login'])
+{
+	header("Location: login.php");
+}
 ?>
+
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -39,6 +45,19 @@
    </style>
    </head>
    <body>
+   <?php
+// if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+//     header("location: dashboard.php?login=true"); 
+// session_start();
+// if (!isset($_SESSION['login']) && $_SESSION['login'] !== true) {
+//    header('location: http://localhost/hi5-sharing-social-media-website/login.php?login=false');  
+//   }else{
+    
+   //  header('location: http://localhost/hi5-sharing-social-media-website/dashboard.php?login=true'); 
+//  } 
+
+
+?>
    <?php
 include("partial/_header.php");
 include("partial/_sidebar.php");
@@ -91,7 +110,7 @@ include("partial/_sidebar.php");
                                  <div class="modal-content">
                                     <div class="modal-header">
                                        <h5 class="modal-title" id="post-modalLabel">Create Post</h5>
-                                       <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="ri-close-fill"></i></button>
+                                       <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-close"></i></button>
                                     </div>
                                     <div class="modal-body">
                                        <div class="d-flex align-items-center">
@@ -201,8 +220,10 @@ include("partial/_sidebar.php");
                               // $sql="select usr.stream_name,lgn.* from tbl_subject lgn INNER JOIN tbl_stream pl ON pl.stream_id=lgn.stream_id where lgn.status=0";
                               $sql = "SELECT * FROM `tbl_post` LIMIT 5";
                               $result = $conn->query($sql);
-                              
+                              // session_start();
+                                 // $_SESSION['count']=$result->num_rows;
                               if ($result->num_rows > 0) {
+                                 
                                 // output data of each row
                                 while($row = $result->fetch_assoc()) {
                                  //   $uid=$row["User_ID_id"];
@@ -672,9 +693,16 @@ include("partial/_sidebar.php");
       <script src="js/custom.js"></script>
      
    </body>
+   <?php
+// }else{
+   // echo $_SESSION['login'];
+//    header("Location:./login.php");
+// }
+?>
 </html>
 <?php
-// } else {
-//    header("location: login.php?login=false"); 
+// }else{
+   // echo $_SESSION['login'];
+//    header("Location:./login.php");
 // }
 ?>

@@ -94,7 +94,7 @@ include("partial/_indexHeader.php");
 
                     <div class="col-md-9 pb--60">
                         <!-- Contact Form Start -->
-                        <div class="contact--form" data-form="ajax">
+                        <div class="contact--form">
                             <div class="contact--title">
                                 <h3 class="h4">Drop Us A Line</h3>
                             </div>
@@ -107,8 +107,8 @@ include("partial/_indexHeader.php");
                                 <p>(Required field are marked *)</p>
                             </div>
 
-                            <form action="forms/contact-form.php" method="post">
-                                <div class="row gutter--20">
+                            <form action="partial/_contact.php" method="post">
+                                <div class="row">
                                     <div class="col-xs-6 col-xxs-12">
                                         <div class="form-group">
                                             <input type="text" name="name" placeholder="Name *" class="form-control" required>
@@ -134,11 +134,12 @@ include("partial/_indexHeader.php");
                                     </div>
 
                                     <div class="col-xs-12">
-                                        <button type="submit" class="btn btn-primary mt--10">Send Message</button>
+                                        <input type="submit" name="submit" class="btn btn-primary mt--10" value="Send Message">
+                                        <!-- <button type="submit" name="submit" class="btn btn-primary mt--10"></button> -->
                                     </div>
                                 </div>
 
-                                <div class="status"></div>
+                                <!-- <div class="status"></div> -->
                             </form>
                         </div>
                         <!-- Contact Form End -->
