@@ -218,7 +218,7 @@ include("partial/_sidebar.php");
                      <?php
                               include("partial/_db.php");
                               // $sql="select usr.stream_name,lgn.* from tbl_subject lgn INNER JOIN tbl_stream pl ON pl.stream_id=lgn.stream_id where lgn.status=0";
-                              $sql = "SELECT * FROM `tbl_post` LIMIT 5";
+                              $sql = "SELECT * FROM `tbl_post`";
                               $result = $conn->query($sql);
                               // session_start();
                                  // $_SESSION['count']=$result->num_rows;
@@ -254,7 +254,9 @@ include("partial/_sidebar.php");
                                    <div class="user-post">
                                       <div class="d-flex">
                                          <div class="col-md-6">
-                                            <a href="javascript:void();"><img src="partial/user posts/<?php echo $row["Post"] ?>" alt="post-image" class="img-fluid rounded w-100"></a>
+                                            <a href=""><img src="partial/user posts/<?php echo $row["Post"] ?>" alt="post-image" style="object-fit: cover;
+width: 199%;
+height: 312px;"></a>
                                          </div>
                                         
                                          </div>

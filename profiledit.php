@@ -147,7 +147,7 @@ if ($result->num_rows > 0) {
                                                 <img class="profile-pic" src="partial/user images/<?php echo $img ?>" alt="profile-pic">
                                                 <div class="p-image">
                                                    <i class="fa fa-plus upload-button"></i>
-                                                   <input class="file-upload" name="image" type="file" accept="image/*"/>
+                                                   <input class="file-upload" name="User_image" type="file" accept="image/*"/>
                                                 </div>
                                              </div>
                                           </div>
@@ -217,21 +217,21 @@ if ($result->num_rows > 0) {
                                     </div>
                                  </div>
                                  <div class="iq-card-body">
-                                    <form>
+                                    <form method="post" action="partial/_changepass.php">
                                        <div class="form-group">
                                           <label for="cpass">Current Password:</label>
                                           <a href="forgetpassword.php" class="float-right">Forgot Password</a>
-                                          <input type="Password" class="form-control" id="cpass" value="">
+                                          <input type="Password" name="old" class="form-control" id="cpass" value="">
                                        </div>
                                        <div class="form-group">
                                           <label for="npass">New Password:</label>
-                                          <input type="Password" class="form-control" id="npass" value="">
+                                          <input type="Password" name="newp" class="form-control" id="npass" value="">
                                        </div>
                                        <div class="form-group">
                                           <label for="vpass">Verify Password:</label>
-                                          <input type="Password" class="form-control" id="vpass" value="">
+                                          <input type="Password" name="con" class="form-control" id="vpass" value="">
                                        </div>
-                                       <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                       <button type="submit" name="submit" class="btn btn-primary mr-2">Submit</button>
                                        <button type="reset" class="btn iq-bg-danger">Cancle</button>
                                     </form>
                                  </div>
@@ -332,6 +332,9 @@ if ($result->num_rows > 0) {
                   </div>
                </div>
             </div>
+         </div>
+         </div>
+         </div>
          </div>
       </div>
       <!-- Wrapper END -->
