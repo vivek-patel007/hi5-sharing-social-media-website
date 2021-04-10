@@ -345,28 +345,35 @@
                         </li>
                      </ul> -->
                   </div>
+                  
                </nav>
+              
             </div>
-         </div>
-         <?php
+  
+
+            <?php
 		if(isset($_GET['err']) && $_GET['err']=="false"){
 			$msg=$_GET['msg'];
-			echo '<div class="bg-gradient-success uk-light" uk-alert>
-			<a class="uk-alert-close" uk-close></a>
-			<strong id="success">SUCCESS: </strong> <p> '. $msg .'</p>
-		</div>'; 
-		  
-			
-		  
-		  }
-		  if(isset($_GET['err']) && $_GET['err']=="true"){
-			$msg=$_GET['msg'];
-			echo '<div class="bg-gradient-danger uk-light" uk-alert>
-			<a class="uk-alert-close" uk-close></a>
-			<strong id="success">ERROR: </strong><p>'. $msg .'</p>
-		</div>';
-		}
-      ?>
+           echo ' <div class="alert text-white bg-success" role="alert" style="height: 60px;">
+                              <div class="iq-alert-text"><b>SUCCESS: </b> '.$msg.'</div>
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                           </div>';
+                        }
+                        if(isset($_GET['err']) && $_GET['err']=="true"){
+                         $msg=$_GET['msg'];
+                         echo ' <div class="alert text-white bg-danger" role="alert" style="height: 60px;">
+                         <div class="iq-alert-text"><b>ERROR: </b> '.$msg.'</div>
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                       </button>
+                      </div>';
+                        }
+                      ?>
+         </div>
+         </div>
+      
        </div>
             <!-- Footer END -->
       <!-- Optional JavaScript -->

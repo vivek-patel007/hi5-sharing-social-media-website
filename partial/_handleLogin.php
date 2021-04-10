@@ -35,6 +35,7 @@ session_start();
                     session_regenerate_id();
                     $_SESSION['login'] = True;
                     $_SESSION['user'] = $user;
+                    $_SESSION['id'] = $row['User_ID'];
                     
                     // echo "<script language='javascript'>window.location.href='user/index.php';</script>";
                     header('location: ../dashboard.php?login=true'); 

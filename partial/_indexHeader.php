@@ -12,7 +12,7 @@
     <meta name="author" content="ThemeLooks">
     <meta name="description" content="Multipurpose Social Network HTML5 Template">
     <meta name="keywords" content="social media, social network, forum, shop, bootstrap, html5, css3, template, responsive, retina ready">
-
+    <script src="https://use.fontawesome.com/a61ba315b6.js"></script>
     <!-- ==== Favicon ==== -->
     <link rel="icon" href="favicon.png" type="image/png">
 
@@ -93,9 +93,11 @@
                         <form action="#">
                             <input type="text" name="search" placeholder="I’m looking for..." class="form-control" required>
 
-                            <button type="submit" class="btn-link"><i class="fa fa-search"></i></button>
+                            <!-- <button type="submit" class="btn-link"><i class="fa fa-search"></i></button> -->
                         </form>
+                        
                     </div>
+                    
                     <!-- Header Search End -->
 <?php
       
@@ -133,13 +135,20 @@
                             <li class="'.$contact.'"><a href="contact.php"><span>Contact Us</span></a></li>
                         </ul>
                         <!-- Header Nav Links End -->
+                        <!-- Header Section End -->';
+                        ?>
+                        
                     </div>
                 </div>
-            </div>
+               
+                 
             <!-- Header Navbar End -->
+         
+             
+  </div>
         </header>
-        <!-- Header Section End -->';
-        ?>
+   
+            
 <?php
 include("_signup.php");
 // include("_signin.php");

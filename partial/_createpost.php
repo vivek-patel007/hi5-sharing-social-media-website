@@ -1,4 +1,28 @@
 <?php
+	ob_start();
+  session_start();
+  if(!$_SESSION['login'])
+  {
+    header("Location: login.php");
+  }
+global $user,$id;
+@$user=$_SESSION["user"];			
+if($user == "")
+{
+   header("location: login.php");
+}
+
+                              include("_db.php");
+                              // $sql="select usr.stream_name,lgn.* from tbl_subject lgn INNER JOIN tbl_stream pl ON pl.stream_id=lgn.stream_id where lgn.status=0";
+                              $sql = "SELECT * FROM `tbl_User` WHERE Email_ID='$user'";
+                              $result = $conn->query($sql);
+                              $result->num_rows;
+                           
+                                $row = $result->fetch_assoc();
+                                @$id=$row['User_ID'];
+
+?>
+<?php
 if ($_SERVER['REQUEST_METHOD']=='POST'){
   include("_db.php");
     $pt=$_POST["pt"];
@@ -38,7 +62,7 @@ if(!is_dir('user posts')){
     // $ext = pathinfo($filename, PATHINFO_EXTENSION);
       $sql = "INSERT INTO `tbl_post`(`type`, `Post`, `Post_Title`, `Post_Caption`, `Timestamp`, `User_ID_id`) 
         VALUES
-       ('$file_type','$post','$pt','$pc',now(),17)";
+       ('$file_type','$post','$pt','$pc',now(),'$id')";
 
 // $result1=mysqli_query($con,$sql1);
     
