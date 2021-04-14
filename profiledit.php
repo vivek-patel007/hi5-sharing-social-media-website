@@ -123,7 +123,7 @@ if ($result->num_rows > 0) {
  $last=$row["Last_Name"];
  $email=$row["Email_ID"];
  $mobile=$row["Mobile_NO"];
- $post=$row["Post"];
+//  $post=$row["Post"];
  $city=$row["City"];
  $address=$row["Address"];
  $xender=$row["gender"];

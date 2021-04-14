@@ -78,7 +78,7 @@ function onlyAlphabets(e, t) {
                                           <div class="col-md-6 form-group">
                                              <label for="cno" class="control-label">Contact Number: *</label>
                                              <input type="text" minlength="10" maxlength="10"  onkeypress="return IsNumeric(event);" 
-							ondrop="return false;" onpaste="return false;" class="form-control" required="required" id="cno" name="cno" placeholder="Contact Number">
+							ondrop="return false;" onpaste="return false;" class="form-control" required="required" id="Mobile_NO" name="Mobile_NO" placeholder="Contact Number">
                                           </div>
                                           <div class="col-md-6 form-group">
                                              <label for="emailid" class="control-label">Email Id: *</label>
@@ -118,7 +118,7 @@ function onlyAlphabets(e, t) {
                                           </div>
                                        </div>
                                        </div>
-                                       <button class="btn btn-primary mt--10 pull-right" type="submit"  >Sign Up</button>
+                                       <button class="btn btn-primary mt--10 pull-right" type="submit"  name="submit">Sign Up</button>
 </form>
                                     </div>
                                  </div>

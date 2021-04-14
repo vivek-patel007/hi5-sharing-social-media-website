@@ -20,7 +20,7 @@
 include("partial/_header.php");
 include("partial/_sidebar.php");
 
-	$sql = "SELECT * FROM `tbl_packages` WHERE is_active='0'";
+	$sql = "SELECT * FROM `tbl_package` WHERE is_active='0'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

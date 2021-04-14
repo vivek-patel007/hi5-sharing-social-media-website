@@ -57,7 +57,7 @@ include("partial/_indexHeader.php");
 include("partial/_db.php");
 
 
-	$sql = "SELECT * FROM `tbl_packages` WHERE is_active='0'";
+	$sql = "SELECT * FROM `tbl_package` WHERE is_active='0'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -97,19 +97,19 @@ if ($result->num_rows > 0) {
       <div class="card mb-5 mb-lg-0">
         <div class="card-body">
           <h5 class="card-title grey-text text-uppercase text-center"><?php echo $title; ?></h5>
-          <h6 class="card-price text-center">$<?php echo $price; ?><span class="term"><?php echo $duration; ?>/Days</span></h6>
+          <h6 class="card-price text-center">&#8377; <?php echo $price; ?><span class="term"><?php echo $duration; ?>/Days</span></h6>
           <hr class="my-4">
           <ul class="fa-ul">
             <li><span class="fa-li"><i class="fa fa-arrow-right"></i></span>Single User</li>
             <li><span class="fa-li"><i class="fa fa-arrow-right"></i></span><?php echo $size; ?> Storage</li>
             <li><span class="fa-li"><i class="fa fa-arrow-right"></i></span><?php echo $desc; ?></li>
-            <li><span class="fa-li"><i class="fa fa-arrow-right"></i></span>Community Access</li>
+            <!-- <li><span class="fa-li"><i class="fa fa-arrow-right"></i></span>Community Access</li>
             <li class="grey-text"><span class="fa-li"><i class="fa fa-times"></i></span>Unlimited Private Projects</li>
             <li class="grey-text"><span class="fa-li"><i class="fa fa-times"></i></span>Dedicated Phone Support</li>
             <li class="grey-text"><span class="fa-li"><i class="fa fa-times"></i></span>Free Subdomain</li>
-            <li class="grey-text"><span class="fa-li"><i class="fa fa-times"></i></span>Monthly Status Reports</li>
+            <li class="grey-text"><span class="fa-li"><i class="fa fa-times"></i></span>Monthly Status Reports</li> -->
           </ul>
-          <a href="#" class="btn btn-block btn-primary z-depth-0 btn-rounded my-2">Buy</a>
+          <a href="login.php" class="btn btn-block btn-primary z-depth-0 btn-rounded my-2">BOOK NOW</a>
         </div>
       </div>
     </div>

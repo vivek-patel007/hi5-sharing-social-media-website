@@ -54,7 +54,7 @@ session_start();
                
                   $_SESSION['msg'] = $msg;
                   // echo "<script language='javascript'>alert('User Name  or Password is wrong');</script>";
-                  header('location: ../login.php?login=false');         
+                  header('location: ../login.php?login=false&&msg=$msg');         
            
                    } 
    }

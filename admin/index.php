@@ -93,7 +93,7 @@ if ($result->num_rows > 0) {
                                                 <th>User Name</th>
                                                 <th>View profile</th>
                                                 <th>Chat History</th>
-                                                <th>Post</th>
+                                                <!-- <th>Post</th> -->
                                                 <th>Mobile NO</th>
                                                 <th>Email</th>
                                                 <th>OTP</th>
@@ -113,7 +113,7 @@ if ($result->num_rows > 0) {
  $last=$row["Last_Name"];
  $email=$row["Email_ID"];
  $mobile=$row["Mobile_NO"];
- $post=$row["Post"];
+//  $post=$row["Post"];
  $otp=$row["OTP"];
  $xender=$row["gender"];
  $img=$row["User_image"];
@@ -125,11 +125,7 @@ if ($result->num_rows > 0) {
                                                 </td>
                                                 <td><a class="mini-btn" href="#" title="">view</a></td>
                                                 <td><a class="mini-btn" href="#" title="">view</a></td>
-                                                <td>
-
-                                                    <h5><?php echo $post; ?></h5>
-
-                                                </td>
+                                                
                                                 <td>
 
                                                     <h5><?php echo $mobile; ?></h5>

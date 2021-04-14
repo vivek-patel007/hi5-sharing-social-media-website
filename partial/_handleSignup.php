@@ -1,10 +1,11 @@
 <?php
-if ($_SERVER['REQUEST_METHOD']=='POST'){
+if ($_SERVER['REQUEST_METHOD']=='POST')
+{
   include("_db.php");
     $fn=$_POST["fn"];
     $ln=$_POST["ln"];
     $mail=$_POST["emailid"];
-    $mno=$_POST["cno"];
+    $Mobile_NO=$_POST["Mobile_NO"];
     $pass=$_POST["pwd"];
     $cpass=$_POST["cpwd"];
     // $img1=$_POST['image'];
@@ -54,10 +55,11 @@ if(!is_dir('user images')){
   //start otp sys
 
   //end otp sys
+  // $mobile=$_POST['cno'];
     if(move_uploaded_file($file_tmp,'user images/'.$file_name0)){
-      $sql=("SELECT `Mobile_NO` FROM `tbl_user` WHERE `Mobile_NO`='".$_POST['Mobile_NO']."'");
-      $result=mysqli_query($con,$sql);
-      if(mysqli_affected_rows($con)>0)
+      $sql=("SELECT `Mobile_NO` FROM `tbl_user` WHERE `Mobile_NO`='$Mobile_NO'");
+      $result=mysqli_query($conn,$sql);
+      if(mysqli_affected_rows($conn)>0)
       {
       
         $_SESSION['error']="Mobile Number Already Exist";
@@ -71,14 +73,14 @@ if(!is_dir('user images')){
         $otp=rand(0000,9999);
         $_SESSION['OTP']=$otp;
 
-      $sql = "INSERT INTO tbl_user(First_Name, Last_Name, Email_ID, Mobile_NO, Post, Password,
+      $sql1 = "INSERT INTO tbl_user(First_Name, Last_Name, Email_ID, Mobile_NO, Password,
       City, Address, OTP, Timestamp, User_image,gender, is_active)
        VALUES
-       ('$fn','$ln','$mail',$mno,0,'$pass','$city','$add',$otp,now(),'$img','$gender',1)";
+       ('$fn','$ln','$mail','$Mobile_NO','$pass','$city','$add',$otp,now(),'$img','$gender',1)";
 
-$result1=mysqli_query($con,$sql1);
+$result1=mysqli_query($conn,$sql1);
     
-$sql2=("INSERT INTO tbl_login (Email_ID, Password, Type) VALUES ('$mail','$pass','user')");
+$sql2=("INSERT INTO tbl_login (Email_ID, Password, Type, Timestamp) VALUES ('$mail','$pass','user',now())");
 $result2=mysqli_query($conn,$sql2);
 // if(mysqli_affected_rows($conn)>0)
 
@@ -99,20 +101,24 @@ $result2=mysqli_query($conn,$sql2);
 // }
 }
       
-      if ($conn->query($sql) === TRUE) {
-        $msg=urlencode('Your Verification Code Is '.$otp);file_get_contents('https://www.fast2sms.com/dev/bulk?authorization=BXRkhawSnsUm03tHzxCy16P9JFuqQYjrZOW74Lg5oeTAldDI8VT84LgBM7AvH9ae0WItNX1wOCKhcJdi&sender_id=FSTSMS&message='.$msg.'&language=english&route=p&numbers='.$_POST["cno"]);
+      if (mysqli_affected_rows($conn)>0) {
+        $msg=urlencode('Your Verification Code Is '.$otp);file_get_contents('https://www.fast2sms.com/dev/bulk?authorization=BXRkhawSnsUm03tHzxCy16P9JFuqQYjrZOW74Lg5oeTAldDI8VT84LgBM7AvH9ae0WItNX1wOCKhcJdi&sender_id=FSTSMS&message='.$msg.'&language=english&route=p&numbers='.$_POST["Mobile_NO"]);
 
           echo "<script>alert('we have send OTP to your mobile number,pl enter that to verify your account');</script>";
-        
-          echo "<script>window.location.href='verify.php?contact_no=".$mno."';</script>";
+          header("location: ../verify.php?err=false&&msg=$msg"); 
+          // echo "<script>window.location.href='verify.php?Mobile_NO='$Mobile_NO';</script>";
         // $msg="Added User Successfully....";
         // header("location:/hi5-sharing/verify.php?err=false&&msg=$msg"); 
     }
+    // if ($conn->query($sql1) === TRUE) {
+    //            $msg="Sign Up User Successfully....";
+    //     header("location: login.php?err=false&&msg=$msg"); 
+    // }
 
 }
 }else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 }
-$conn->close();
+
 ?>
