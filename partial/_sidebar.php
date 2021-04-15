@@ -47,9 +47,9 @@
         case 'profiledit.php':
           $edit="active";
           break;
-      //     case 'post.php':
-      //       $post="active";
-      //     break;
+          case 'packages.php':
+            $package="active";
+          break;
       //   case 'contact.php':
       //     $contact="active";
       //   break;
@@ -64,11 +64,11 @@ echo '
                      </li>
              
                   
-                     <li>
-                        <a href="profile-images.html" class="iq-waves-effect"><i class="las la-image"></i><span>Profile Image</span></a>
+                     <li class="'.$package.'">
+                        <a href="packages.php" class="iq-waves-effect"><i class="lab la-wpforms"></i><span>Packages</span></a>
                      </li>
                      <li>
-                        <a href="profile-video.html" class="iq-waves-effect"><i class="las la-video"></i><span>Profile Video</span></a>
+                        <a href="bookpackage.php" class="iq-waves-effect"><i class="las la-video"></i><span>Profile Video</span></a>
                      </li>
                      <li>
                         <a href="profile-event.html" class="iq-waves-effect"><i class="las la-film"></i><span>Profile Events</span></a>
