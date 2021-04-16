@@ -80,6 +80,19 @@ include("partial/_db.php");
                            <div class="table-responsive">
                               <table id="datatable" class="table table-striped table-bordered" >
                                  <thead>
+                                 <?php
+//                   while($row = $result->fetch_assoc()) {
+//  $id=$row["package_id"];
+//  $price=$row["Amount"];
+//  $title=$row["Payment_Status"];
+//  $size=$row["package_size"];
+//  $start=$row["package_start"];
+//  $end=$row["package_end"];
+//  $duration=$row["duration"];
+//  $desc=$row["package_description"];
+//  $timestamp=$row["timestamp"];
+ 
+?>
                                     <tr>
                                        <th>Name</th>
                                        <th>Position</th>
