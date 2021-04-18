@@ -1,10 +1,15 @@
+<?php
+global $user;
+@$user=$_SESSION["user"];			
 
+                              
+?>
 
 <?php
-	global $img,$first_name,$last_name;
+	
    
 		include("partial/_db.php");
-		$sql= "select * from tbl_User where Email_ID = '$user' and is_active = 0";
+		$sql= "select * from tbl_User where Email_ID = '$user' and is_active = '0'";
 				$result=mysqli_query($conn,$sql);
 				$count = mysqli_num_rows($result);
 				while($row = mysqli_fetch_array($result))
@@ -142,7 +147,7 @@ if ($result->num_rows > 0) {
                                              </div>
                                           </div>
                                        </div>
-                                       <div class=" row align-items-center mt-10">
+                                       <div class=" row align-items-center mt-10" style="margin-top: 65px;">
                                           <div class="form-group col-sm-6">
                                              <label for="fname">First_Name</label>
                                              <input type="text" class="form-control" name="fname" value="<?php echo $first; ?>">
