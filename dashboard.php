@@ -1,3 +1,22 @@
+<?php
+include("partial/_db.php");
+
+                             
+                                      $sql2="SELECT tbl_user.First_Name,tbl_user.Last_Name, tbl_comments.Comments,tbl_post.Post_ID, tbl_user.User_image FROM tbl_comments INNER JOIN tbl_user ON tbl_user.User_ID= tbl_comments.User_ID_id INNER JOIN tbl_post ON tbl_comments.Post_id=tbl_post.Post_ID";
+                                      $result2 = $conn->query($sql2);
+                                      // session_start();
+                                         // $_SESSION['count']=$result->num_rows;
+                                      if ($result2->num_rows > 0) {
+                                          
+                                        // output data of each row
+                                        while($row2 = $result2->fetch_assoc()) {
+                                          $GLOBALS['comments']=$row2['Comments'];
+                                          $GLOBALS['fn']=$row2['First_Name'];
+                                          $GLOBALS['ln']=$row2['Last_Name'];
+                                          $GLOBALS['img']=$row2['User_image'];
+                                        }
+                                        }
+                                           ?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -208,7 +227,9 @@ include("partial/_sidebar.php");
                      <?php
                               include("partial/_db.php");
                               // $sql="select usr.stream_name,lgn.* from tbl_subject lgn INNER JOIN tbl_stream pl ON pl.stream_id=lgn.stream_id where lgn.status=0";
-                              $sql = "SELECT tbl_post.Post_ID, tbl_post.Post_Title,tbl_post.User_ID_id,tbl_post.Post_Caption,tbl_post.type, tbl_post.Post, tbl_post.is_active, tbl_user.First_Name, tbl_user.Last_Name, tbl_user.User_image  FROM tbl_post INNER JOIN tbl_user ON tbl_post.User_ID_id=tbl_user.User_ID";
+                              $sql = "SELECT tbl_post.Post_ID, tbl_post.Post_Title,tbl_post.User_ID_id,tbl_post.Post_Caption,tbl_post.type, 
+                              tbl_post.Post, tbl_post.is_active, tbl_user.First_Name, tbl_user.Last_Name, tbl_user.User_image  FROM tbl_post
+                               INNER JOIN tbl_user ON tbl_post.User_ID_id=tbl_user.User_ID";
                               $result = $conn->query($sql);
                               // session_start();
                                  // $_SESSION['count']=$result->num_rows;
@@ -312,31 +333,35 @@ height: 312px;"></a>
                                             <span class="ml-1">99 Share</span></a>
                                          </div>
                                       </div>
+                                    
                                       <hr>
                                       <ul class="post-comments p-0 m-0">
                                          <li class="mb-2">
                                             <div class="d-flex flex-wrap">
                                                <div class="user-img">
+                                         
                                                   <img src="images/user/02.jpg" alt="userimg" class="avatar-35 rounded-circle img-fluid">
                                                </div>
                                                <div class="comment-data-block ml-3">
-                                                  <h6>Monty Carlo</h6>
-                                                  <p class="mb-0">Lorem ipsum dolor sit amet</p>
+                                               
+                                                  <h6><?php echo $GLOBALS['fn'];  ?></h6>
+                                                  <p class="mb-0"><?php $GLOBALS['comments'];?></p>
+                                                
                                                   <div class="d-flex flex-wrap align-items-center comment-activity">
-                                                     <a href="javascript:void();">like</a>
+                                                     <!-- <a href="javascript:void();">like</a>
                                                      <a href="javascript:void();">reply</a>
                                                      <a href="javascript:void();">translate</a>
-                                                     <span> 5 min </span>
+                                                     <span> 5 min </span> -->
                                                   </div>
                                                </div>
                                             </div>
                                          </li>
-                                         <li>
+                                         <!-- <li>
                                             <div class="d-flex flex-wrap">
                                                <div class="user-img">
                                                   <img src="images/user/03.jpg" alt="userimg" class="avatar-35 rounded-circle img-fluid">
-                                               </div>
-                                               <div class="comment-data-block ml-3">
+                                               </div> -->
+                                               <!-- <div class="comment-data-block ml-3">
                                                   <h6>Paul Molive</h6>
                                                   <p class="mb-0">Lorem ipsum dolor sit amet</p>
                                                   <div class="d-flex flex-wrap align-items-center comment-activity">
@@ -345,16 +370,16 @@ height: 312px;"></a>
                                                      <a href="javascript:void();">translate</a>
                                                      <span> 5 min </span>
                                                   </div>
-                                               </div>
-                                            </div>
-                                         </li>
+                                               </div> -->
+                                            <!-- </div>
+                                         </li> -->
                                       </ul>
                                       <form class="comment-text d-flex align-items-center mt-3" action="javascript:void(0);">
                                          <input type="text" class="form-control rounded">
                                          <div class="comment-attagement d-flex">
-                                            <a href="javascript:void();"><i class="ri-link mr-3"></i></a>
-                                            <a href="javascript:void();"><i class="ri-user-smile-line mr-3"></i></a>
-                                            <a href="javascript:void();"><i class="ri-camera-line mr-3"></i></a>
+                                            <a href="javascript:void();"><i class="fa fa-paper-plane" style="margin-right: 20px;"></i></a>
+                                           
+                                        
                                          </div>
                                       </form>
                                    </div>
@@ -363,7 +388,9 @@ height: 312px;"></a>
                           </div>
                           </div>
                           <?php
-                       }
+                                        
+                                         
+                     }
                                    } else {
                                      echo "0 results";
                                    }

@@ -39,6 +39,8 @@
       $package="";
       $pkg="";
       $contact="";
+      $book="";
+      $feedback="";
       
       switch($activepage){
         case 'dashboard.php':
@@ -49,6 +51,12 @@
           break;
           case 'packages.php':
             $package="active";
+          break;
+          case 'bookpackage.php':
+            $book="active";
+          break;
+          case 'feedback.php':
+            $feedback="active";
           break;
       //   case 'contact.php':
       //     $contact="active";
@@ -67,11 +75,11 @@ echo '
                      <li class="'.$package.'">
                         <a href="packages.php" class="iq-waves-effect"><i class="lab la-wpforms"></i><span>Packages</span></a>
                      </li>
-                     <li>
-                        <a href="bookpackage.php" class="iq-waves-effect"><i class="las la-video"></i><span>Profile Video</span></a>
+                     <li class="'.$book.'">
+                        <a href="bookpackage.php" class="iq-waves-effect"><i class="las la-video"></i><span>book package</span></a>
                      </li>
-                     <li>
-                        <a href="profile-event.html" class="iq-waves-effect"><i class="las la-film"></i><span>Profile Events</span></a>
+                     <li class="'.$feedback.'">
+                        <a href="feedback.php" class="iq-waves-effect"><i class="lab la-rocketchat"></i><span>Feedback</span></a>
                      </li>
                      <li>
                         <a href="profile-badges.html" class="iq-waves-effect"><i class="las la-certificate"></i><span>Profile Badges</span></a>
