@@ -1,3 +1,19 @@
+<?php
+	ob_start();
+session_start();
+if(!$_SESSION['login'])
+{
+	header("Location: login.php");
+}
+ 
+global $user;
+@$user=$_SESSION["user"];			
+if($user == "")
+{
+   header("location: login.php");
+}
+                              
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,17 +61,29 @@
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
                   <i class="ri-menu-3-line"></i>
                   </button>
+            <?php
+              include("_db.php");
+              //  $user=$_SESSION['user'];
+               $sql = "SELECT * FROM `tbl_user` WHERE Email_ID='$user' AND is_active='0'";
+               $result = $conn->query($sql);
+               
+               if ($result->num_rows > 0) {
+               
+              // output data of each row
+              $row = $result->fetch_array();
+            ?>
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                      <ul class="navbar-nav ml-auto navbar-list">
                         <li>
                            <a href="profiledit.php" class="iq-waves-effect d-flex align-items-center">
-                              <img src="images/user/1.jpg" class="img-fluid rounded-circle mr-3" alt="user">
+                              <img src="partial/user images/<?php echo $row['User_image']; ?>" class="img-fluid rounded-circle mr-3" alt="user">
                               <div class="caption">
-                                 <h6 class="mb-0 line-height">Bni Cyst</h6>
+                                 <h6 class="mb-0 line-height"><?php echo $row['First_Name']." ".$row['Last_Name']; }?></h6>
                               </div>
                            </a>
                         </li>
                         <li>
+                      
                            <a href="dashboard.php" class="iq-waves-effect d-flex align-items-center">
                            <i class="fa fa-home"></i>
                            </a>

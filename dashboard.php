@@ -1,15 +1,3 @@
-<?php
-	ob_start();
-session_start();
-if(!$_SESSION['login'])
-{
-	header("Location: login.php");
-}
-
-                              
-?>
-
-
 <!doctype html>
 <html lang="en">
    <head>
@@ -86,7 +74,7 @@ include("partial/_sidebar.php");
                               </div>
                               <hr>
                               <ul class="post-opt-block d-flex align-items-center list-inline m-0 p-0">
-                                 <li class="iq-bg-primary rounded p-2 pointer mr-3"><a href="#"></a><img src="images/small/07.png" alt="icon" class="img-fluid"><label for="files" class="btn" style="color:blue;"> Photo/Video</label></li><input id="files" style="visibility:hidden;" type="file">
+                                 <li class="iq-bg-primary rounded p-2 pointer mr-3"><a href="#"></a><img src="images/small/07.png" alt="icon" class="img-fluid"> Photo/Video</li>
                                  <li class="iq-bg-primary rounded p-2 pointer mr-3"><a href="#"></a><img src="images/small/08.png" alt="icon" class="img-fluid"> Tag Friend</li>
                                  <li class="iq-bg-primary rounded p-2 pointer mr-3"><a href="#"></a><img src="images/small/09.png" alt="icon" class="img-fluid"> Feeling/Activity</li>
                                  <li class="iq-bg-primary rounded p-2 pointer">
@@ -220,7 +208,7 @@ include("partial/_sidebar.php");
                      <?php
                               include("partial/_db.php");
                               // $sql="select usr.stream_name,lgn.* from tbl_subject lgn INNER JOIN tbl_stream pl ON pl.stream_id=lgn.stream_id where lgn.status=0";
-                              $sql = "SELECT * FROM `tbl_post`";
+                              $sql = "SELECT tbl_post.Post_ID, tbl_post.Post_Title,tbl_post.User_ID_id,tbl_post.Post_Caption,tbl_post.type, tbl_post.Post, tbl_post.is_active, tbl_user.First_Name, tbl_user.Last_Name, tbl_user.User_image  FROM tbl_post INNER JOIN tbl_user ON tbl_post.User_ID_id=tbl_user.User_ID";
                               $result = $conn->query($sql);
                               // session_start();
                                  // $_SESSION['count']=$result->num_rows;
@@ -239,11 +227,11 @@ include("partial/_sidebar.php");
                                    <div class="user-post-data">
                                       <div class="d-flex flex-wrap">
                                          <div class="media-support-user-img mr-3">
-                                            <img class="rounded-circle img-fluid" src="images/user/01.jpg" alt="">
+                                            <img class="rounded-circle img-fluid" src="partial/user images/<?php echo $row["User_image"]; ?>" alt="">
                                          </div>
                                          <div class="media-support-info mt-2">
-                                            <h5 class="mb-0 d-inline-block"><a href="#" class="">Anna Sthesia</a></h5>
-                                            <p class="mb-0 d-inline-block">Add New Post</p>
+                                            <h5 class="mb-0 d-inline-block"><a href="#" class=""><?php echo $row["First_Name"]." ".$row["Last_Name"] ?></a></h5>
+                                            <!-- <p class="mb-0 d-inline-block">A   dd New Post</p> -->
                                             <p class="mb-0 text-primary"><?php echo $row["Post_Title"] ?></p>
                                          </div>
                                          <div class="iq-card-post-toolbar">

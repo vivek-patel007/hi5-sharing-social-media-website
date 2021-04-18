@@ -1,18 +1,8 @@
 
-<?php
-ob_start();
-session_start();
-?>
-<?php
-	global $user;
-	@$user=$_SESSION["user"];			
-	if($user == "")
-	{
-		header("location: login.php");
-	}
-?>
+
 <?php
 	global $img,$first_name,$last_name;
+   
 		include("partial/_db.php");
 		$sql= "select * from tbl_User where Email_ID = '$user' and is_active = 0";
 				$result=mysqli_query($conn,$sql);
