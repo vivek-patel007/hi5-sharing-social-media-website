@@ -36,8 +36,9 @@
    </head>
    <body>
    <?php
-ob_start();
-session_start();
+if (!session_id() && !headers_sent()) {
+    session_start();
+ }  
 ?>
 <?php
 	global $user;
@@ -71,34 +72,37 @@ if ($result->num_rows > 0) {
                   <?php
                   while($row = $result->fetch_assoc()) {
  $id=$row["package_id"];
- $price=$row["package_price"];
- $title=$row["package_title"];
- $size=$row["package_size"];
- $start=$row["package_start"];
- $end=$row["package_end"];
+ $package_price=$row["package_price"];
+ $package_title=$row["package_title"];
+ $package_size=$row["package_size"];
+ $package_start=$row["package_start"];
+ $package_end=$row["package_end"];
  $duration=$row["duration"];
- $desc=$row["package_description"];
+ $package_description=$row["package_description"];
  $timestamp=$row["timestamp"];
  
 ?>
                   <div class="col-lg-3 col-md-6 col-sm-12">
                      <div class="iq-card">
                         <div class="iq-card-body border text-center rounded">
-                           <span class="font-size-16 text-uppercase"><?php echo $title; ?></span>
-                           <h2 class="mb-4 display-5 font-light-bolder ">&#8377; <?php echo $price; ?><small class="font-size-14 text-muted"><?php echo $duration; ?>/Days</small></h2>
+                           <span class="font-size-16 text-uppercase"><?php echo $package_title; ?></span>
+                           <h2 class="mb-4 display-5 font-light-bolder ">&#8377; <?php echo $package_price; ?><small class="font-size-14 text-muted"><?php echo $duration; ?>/Days</small></h2>
                            <ul class="list-unstyled line-height-4 mb-0">
                            <li><span class="fa-li"></span>Single User</li>
-            <li><span></span><?php echo $size; ?> Storage</li>
-            <li><span></span><?php echo $desc; ?></li>
+            <li><span></span><?php echo $package_size; ?> Storage</li>
+            <li><span></span><?php echo $package_description; ?></li>
                            </ul>
-                           <form action="partial/_bookpackage.php" method="post">
+                           <form action="" method="post">
                            <input type="hidden" name="package_id" value="<?php echo $id; ?>">
                            <input type="hidden" name="usermail" value="<?php echo $user; ?>">
                            
-<input type="hidden" name='price'  value="<?php echo $price; ?>">
+<input type="hidden" name='package_price'  value="<?php echo $package_price; ?>">
+<input type="hidden" name='package_title'  value="<?php echo $package_title; ?>">
+<input type="hidden" name='package_start'  value="<?php echo $package_start; ?>">
 <input type="hidden" name='duration' value="<?php echo $duration; ?>">
-                           <input type="submit" value="BOOK NOW" class="btn btn-primary mt-5">
+                           <input type="submit" name="submit1" value="BOOK NOW" class="btn btn-primary mt-5">
                            </form>
+                        
                         </div>
                      </div>
                   </div>
@@ -110,7 +114,92 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
        <!-- </div>
-       </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+       <?php
+                    if(isset($_POST['submit1']))
+{
+	 global $email_id;
+    
+    include("partial/_db.php");
+ 
+						$user=@$_POST['usermail'];
+                    	$package_title=@$_POST['package_title'];
+						$package_price=@$_POST['package_price'];
+						$duration=@$_POST['duration'];	
+						$package_start=@$_POST['package_start'];	
+						
+						$sdate=date('Y-m-d');
+						$package_end=date("Y-m-d",strtotime("+$duration days"));
+						
+						$Payment_Status=@$_POST['Payment_Status'];			
+						
+			
+						
+						
+		$sql="insert into tbl_packagebooking(user_email,package_title,package_price,duration,package_start,package_end,Package_ID ,
+      Payment_Status)
+       values('$user','$package_title','$package_price','$duration','$sdate',
+		'$package_end','1','no')";
+		//echo $sql;
+		$ret=mysqli_query($conn,$sql);
+		if($ret)
+		{
+	 echo "<script language='javascript'>alert('record inserted');</script>";
+echo "<script language='javascript'>window.location.href='viewpackage.php';</script>";
+		}
+}
+?>  
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          </div>
        </div> -->
          <footer class="bg-white iq-footer">
          <div class="container-fluid">

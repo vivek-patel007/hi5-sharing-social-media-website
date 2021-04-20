@@ -1,6 +1,9 @@
 <?php
-	ob_start();
-session_start();
+  
+   if (!session_id() && !headers_sent()) {
+       session_start();
+    }  
+
 if(!$_SESSION['login'])
 {
 	header("Location: login.php");
@@ -14,6 +17,8 @@ if($user == "")
 }
                               
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

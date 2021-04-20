@@ -50,11 +50,7 @@ session_start();
    <?php
 include("partial/_header.php");
 include("partial/_sidebar.php");
-include("partial/_db.php");
-// $sql = "SELECT * FROM `tbl_package` WHERE is_active='0'";
-// $result = $conn->query($sql);
 
-// if ($result->num_rows > 0) {
     ?>
 
 <div id="content-page" class="content-page">
@@ -80,51 +76,71 @@ include("partial/_db.php");
                            <div class="table-responsive">
                               <table id="datatable" class="table table-striped table-bordered" >
                                  <thead>
+                             
+                                    <tr>
+                                       <th>Name</th>
+                                       <th>Price</th>
+                                       <th>End Date</th>
+                                       <th>Remaining Days</th>
+                                       <!-- <th>Start date</th>
+                                       <th>Salary</th> -->
+                                    </tr>
+                                 </thead>
+                                 <tbody>
                                  <?php
-//                   while($row = $result->fetch_assoc()) {
-//  $id=$row["package_id"];
-//  $price=$row["Amount"];
-//  $title=$row["Payment_Status"];
+                                 include("partial/_db.php");
+                                 $sql = "SELECT * FROM `tbl_packagebooking` WHERE is_active='0'";
+                                 $result = $conn->query($sql);
+                                 
+                                 if ($result->num_rows > 0) {
+                  while($row = $result->fetch_assoc()) {
+//  $id=$row["Package_id"];
+ $Booking_ID =$row["Booking_ID"];
+ $price=$row["package_price"];
+ $title=$row["package_title"];
 //  $size=$row["package_size"];
 //  $start=$row["package_start"];
-//  $end=$row["package_end"];
-//  $duration=$row["duration"];
+ $end=$row["package_end"];
+ $duration=$row["duration"];
 //  $desc=$row["package_description"];
 //  $timestamp=$row["timestamp"];
  
 ?>
                                     <tr>
-                                       <th>Name</th>
-                                       <th>Position</th>
-                                       <th>Office</th>
-                                       <th>Age</th>
-                                       <th>Start date</th>
-                                       <th>Salary</th>
+                                       <td><?php echo $Booking_ID; ?></td>
+                                       <td><?php echo $price; ?></td>
+                                       <td><?php echo $end; ?></td>
+                                       <td><?php echo $duration; ?></td>
+                                       <!-- <td>2011/04/25</td>
+                                       <td>$320,800</td> -->
                                     </tr>
-                                 </thead>
-                                 <tbody>
+                                    <?php
+                  }
+               }
+                                    ?>
                                     <tr>
-                                       <td>Tiger Nixon</td>
-                                       <td>System Architect</td>
-                                       <td>Edinburgh</td>
-                                       <td>61</td>
-                                       <td>2011/04/25</td>
-                                       <td>$320,800</td>
-                                    </tr>
-                                    <tr>
-                                       <td>Garrett Winters</td>
-                                       <td>Accountant</td>
-                                       <td>Tokyo</td>
-                                       <td>63</td>
-                                       <td>2011/07/25</td>
-                                       <td>$170,750</td>
-                                    </tr>
-                                    <tr>
-                                      <td colspan=6> <button type="button" class="btn btn-primary btn-lg btn-block">PAY NOW</button></td>
-                                    </tr>
+                                          <tr>
+                              <td colspan=2>
+                              <div class="col-sm-4 text-center">
+                              <form method="POST">
+                             
+                              <a href="paytm.php">
+        <img src="images/p2.png" class="img-fluid"></a>
+        </form>
+        </td>
+        <td colspan=2>
+        <div class="col-sm-4 text-center">
+        <a href="paytm.php">
+        <img src="images/p3.jpg" class="img-fluid"></a>
+    </div>
+          </td>     
+          </tr> 
+                                   
                                     </tfoot>
+                                    
                               </table>
-                           </div>
+
+                                 </div>
                         </div>
                      </div>
                   </div>
