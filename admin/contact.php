@@ -62,7 +62,7 @@ if ($result2->num_rows > 0) {
  $id=$row2["cid"];
  $type=$row2["name"];
  $title=$row2["email"];
- $caption=$row2["massage"];
+ $caption=$row2["massages"];
 //  $post=$row2["Post"];
 //  $timestamp=$row2["Timestamp"];
 ?>
